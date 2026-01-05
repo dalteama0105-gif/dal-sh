@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="about.title">About DAL-sh</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR (same as index.html) -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="DAL-sh Logo" class="logo-img">
+        </a>
+
+        <button class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="career.html" data-i18n="nav.career">Career</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+
+        <div class="lang-toggle">
+            <button data-lang="en">EN</button>
+            <button data-lang="zh">中文</button>
+            <button data-lang="ms">BM</button>
+        </div>
+    </div>
+</nav>
+<!-- copy navbar exactly -->
+
+<section class="page-header">
+    <div class="container">
+        <h1 data-i18n="about.title">About DAL-sh</h1>
+        <p data-i18n="about.subtitle"></p>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="container">
+        <div id="company-overview"></div>
+    </div>
+</section>
+
+<section class="mission-vision">
+    <div class="container">
+        <div class="mv-grid" id="mission-vision-grid"></div>
+    </div>
+</section>
+
+<section class="values-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Core Values</h2>
+        </div>
+        <div class="values-grid" id="values-grid"></div>
+    </div>
+</section>
+
+<section class="organization-section">
+    <div class="container">
+        <div class="organization-chart" id="organization-chart"></div>
+    </div>
+</section>
+
+<section class="team-section" id="team">
+    <div class="container">
+        <div class="team-grid" id="team-grid"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-sitemap" id="footer-sitemap"></div>
+    </div>
+</footer>
+
+<script src="js/cms.js"></script>
+<script src="js/main.js"></script>
+<script>
+    CMS.renderCompanyOverview();
+    CMS.renderMissionVision();
+    CMS.renderValues();
+    CMS.renderOrganization();
+    CMS.renderTeam();
+    CMS.renderFooter();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+{
+  "en": {
+    "nav.home": "Home",
+    "nav.about": "About",
+    "nav.services": "Services",
+    "nav.projects": "Projects",
+    "nav.career": "Career",
+    "nav.contact": "Contact",
+
+    "home.hero.title": "Transform Your Business with Cutting-Edge Software",
+    "home.hero.tagline": "We deliver innovative technology solutions that drive growth and efficiency for businesses worldwide",
+    "home.cta.primary": "Explore Services",
+    "home.cta.secondary": "Contact Us",
+
+    "section.services": "Our Services",
+    "section.projects": "Featured Projects",
+    "section.news": "Latest News & Updates",
+
+    "about.title": "About DAL-sh",
+    "about.subtitle": "Who we are, what we believe, and how we work",
+
+    "career.title": "Careers at DAL-sh",
+    "career.subtitle": "Build your future with us",
+
+    "contact.title": "Contact Us",
+    "contact.subtitle": "Get in touch with our team",
+    "contact.form.name": "Full Name",
+    "contact.form.email": "Email Address",
+    "contact.form.subject": "Subject",
+    "contact.form.message": "Message",
+    "contact.form.submit": "Send Message",
+
+    "footer.company": "Company",
+    "footer.services": "Services",
+    "footer.resources": "Resources",
+    "footer.contact": "Contact Us"
+  },
+
+  "zh": {
+    "nav.home": "首页",
+    "nav.about": "关于我们",
+    "nav.services": "服务",
+    "nav.projects": "项目",
+    "nav.career": "招聘",
+    "nav.contact": "联系我们",
+
+    "home.hero.title": "以尖端软件推动您的业务转型",
+    "home.hero.tagline": "我们提供创新的技术解决方案，助力全球企业实现增长与效率",
+    "home.cta.primary": "查看服务",
+    "home.cta.secondary": "联系我们",
+
+    "section.services": "我们的服务",
+    "section.projects": "精选项目",
+    "section.news": "最新动态",
+
+    "about.title": "关于 DAL-sh",
+    "about.subtitle": "我们是谁，我们的理念，以及我们的工作方式",
+
+    "career.title": "加入 DAL-sh",
+    "career.subtitle": "与我们一起打造未来",
+
+    "contact.title": "联系我们",
+    "contact.subtitle": "欢迎与我们的团队取得联系",
+    "contact.form.name": "姓名",
+    "contact.form.email": "电子邮箱",
+    "contact.form.subject": "主题",
+    "contact.form.message": "内容",
+    "contact.form.submit": "发送信息",
+
+    "footer.company": "公司",
+    "footer.services": "服务",
+    "footer.resources": "资源",
+    "footer.contact": "联系我们"
+  },
+
+  "ms": {
+    "nav.home": "Laman Utama",
+    "nav.about": "Tentang Kami",
+    "nav.services": "Perkhidmatan",
+    "nav.projects": "Projek",
+    "nav.career": "Kerjaya",
+    "nav.contact": "Hubungi Kami",
+
+    "home.hero.title": "Transformasi Perniagaan Anda Dengan Perisian Terkini",
+    "home.hero.tagline": "Kami menyediakan penyelesaian teknologi inovatif untuk meningkatkan pertumbuhan dan kecekapan perniagaan",
+    "home.cta.primary": "Lihat Perkhidmatan",
+    "home.cta.secondary": "Hubungi Kami",
+
+    "section.services": "Perkhidmatan Kami",
+    "section.projects": "Projek Pilihan",
+    "section.news": "Berita & Kemas Kini",
+
+    "about.title": "Tentang DAL-sh",
+    "about.subtitle": "Siapa kami, nilai kami, dan cara kami bekerja",
+
+    "career.title": "Kerjaya di DAL-sh",
+    "career.subtitle": "Bina masa depan anda bersama kami",
+
+    "contact.title": "Hubungi Kami",
+    "contact.subtitle": "Berhubung dengan pasukan kami",
+    "contact.form.name": "Nama Penuh",
+    "contact.form.email": "Alamat Emel",
+    "contact.form.subject": "Subjek",
+    "contact.form.message": "Mesej",
+    "contact.form.submit": "Hantar Mesej",
+
+    "footer.company": "Syarikat",
+    "footer.services": "Perkhidmatan",
+    "footer.resources": "Sumber",
+    "footer.contact": "Hubungi Kami"
+  }
+}

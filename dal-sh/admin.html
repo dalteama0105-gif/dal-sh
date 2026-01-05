@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DAL-sh Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .admin-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .admin-section {
+            margin-bottom: 4rem;
+        }
+
+        .admin-card {
+            border: 2px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        textarea, input, select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            font-family: inherit;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="admin-container">
+    <h1>DAL-sh Admin Panel</h1>
+    <p>Edit Services & Projects</p>
+
+    <!-- ================= SERVICES ================= -->
+    <div class="admin-section">
+        <h2>Services</h2>
+        <div id="services-editor"></div>
+
+        <div class="admin-actions">
+            <button class="btn btn-secondary" onclick="addService()">Add Service</button>
+            <button class="btn btn-primary" onclick="saveServices()">Save Services</button>
+        </div>
+    </div>
+
+    <!-- ================= PROJECTS ================= -->
+    <div class="admin-section">
+        <h2>Projects</h2>
+        <div id="projects-editor"></div>
+
+        <div class="admin-actions">
+            <button class="btn btn-secondary" onclick="addProject()">Add Project</button>
+            <button class="btn btn-primary" onclick="saveProjects()">Save Projects</button>
+        </div>
+    </div>
+
+    <!-- ================= CAREER ================= -->
+    <div class="admin-section">
+        <h2>Career</h2>
+
+        <h3>Intro</h3>
+        <textarea id="career-intro-text"></textarea>
+
+        <div class="admin-actions">
+            <button class="btn btn-primary" onclick="saveCareer()">Save Career</button>
+        </div>
+
+        <h3 style="margin-top:2rem;">Benefits</h3>
+        <div id="benefits-editor"></div>
+
+        <button class="btn btn-secondary" onclick="addBenefit()">Add Benefit</button>
+
+        <h3 style="margin-top:2rem;">Positions</h3>
+        <div id="positions-editor"></div>
+
+        <button class="btn btn-secondary" onclick="addPosition()">Add Position</button>
+    </div>
+
+    <!-- ================= BRANCHES ================= -->
+    <div class="admin-section">
+        <h2>Branches / Offices</h2>
+
+        <div id="branches-editor"></div>
+
+        <div class="admin-actions">
+            <button class="btn btn-secondary" onclick="addBranch()">Add Branch</button>
+            <button class="btn btn-primary" onclick="saveBranches()">Save Branches</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

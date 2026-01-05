@@ -1449,3 +1449,22 @@ body {
     display: block;
     margin: 0 auto 1.5rem;
 }
+
+/* Google Translate Styling */
+#google_translate_element {
+    margin-left: 20px;
+}
+
+/* Hide the "Powered by Google" branding if desired/allowed */
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 0.9rem !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value span {
+    color: var(--text-dark) !important;
+    font-weight: 500 !important;
+}

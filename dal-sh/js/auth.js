@@ -1,3 +1,4 @@
+/*
 // Replace these values with your Firebase project config
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
@@ -31,3 +32,20 @@ auth.onAuthStateChanged(user => {
     window.location.href = 'login.html';
   }
 });
+*/
+
+// js/auth.js - BYPASS MODE
+
+// 1. Fake Login function (called by login.html)
+function login() {
+    // Simply redirect to admin page without checking password
+    window.location.href = 'admin.html';
+}
+
+// 2. Fake Logout function (called by admin.html)
+function logout() {
+    window.location.href = 'login.html';
+}
+
+// 3. Remove the "onAuthStateChanged" check so it doesn't kick you out
+// (We leave this empty so the admin page doesn't redirect you back to login)

@@ -309,6 +309,7 @@ console.log('%c🚀 DAL-sh Software House', 'font-size: 20px; font-weight: bold;
 console.log('%cWebsite built with HTML, CSS, and Vanilla JavaScript', 'font-size: 12px; color: #64748b;');
 console.log('%cContent managed via JSON files - Edit data/ folder to update content', 'font-size: 12px; color: #10b981;');
 
+/*
 const langButtons = document.querySelectorAll('.lang-toggle button');
 
 async function setLanguage(lang) {
@@ -362,3 +363,4 @@ document.querySelectorAll(".lang-toggle button").forEach(btn => {
 
 // Init
 loadLanguage(currentLang);
+*/

@@ -1,0 +1,100 @@
+{
+  "company": {
+    "name": "DAL-sh",
+    "tagline": "Innovative Software Solutions for Modern Businesses",
+    "description": "DAL-sh is a leading software house specializing in custom software development, cloud solutions, and digital transformation services."
+  },
+  "home": {
+    "hero": {
+      "title": "Transform Your Business with Cutting-Edge Software",
+      "tagline": "We deliver innovative technology solutions that drive growth and efficiency for businesses worldwide",
+      "cta": [
+        {
+          "text": "Explore Services",
+          "link": "services.html",
+          "style": "btn-light"
+        },
+        {
+          "text": "Contact Us",
+          "link": "contact.html",
+          "style": "btn-secondary"
+        }
+      ]
+    },
+    "introduction": {
+      "title": "Welcome to DAL-sh",
+      "content": "We are a forward-thinking software development company committed to delivering exceptional digital solutions. With expertise spanning web development, mobile applications, cloud infrastructure, and enterprise systems, we transform complex business challenges into elegant software solutions. Our team of experienced developers, designers, and strategists work collaboratively to ensure every project exceeds expectations and delivers measurable value."
+    },
+    "cta": {
+      "title": "Ready to Start Your Next Project?",
+      "description": "Let's collaborate to bring your vision to life with innovative technology solutions",
+      "button": {
+        "text": "Get Started Today",
+        "link": "contact.html",
+        "style": "btn-light"
+      }
+    }
+  },
+  "about": {
+    "overview": {
+      "title": "Building Tomorrow's Technology Today",
+      "content": "Founded with a vision to revolutionize how businesses leverage technology, DAL-sh has grown into a trusted partner for organizations seeking digital transformation. Our journey began with a simple belief: that great software should be powerful, intuitive, and accessible. Today, we serve clients across multiple industries, delivering solutions that not only meet current needs but anticipate future challenges. Our commitment to excellence, innovation, and client success drives everything we do."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To empower businesses through innovative software solutions that drive efficiency, growth, and competitive advantage. We strive to be the technology partner that organizations trust to navigate digital transformation and achieve their strategic objectives."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To be recognized globally as a leading software house that sets the standard for quality, innovation, and client satisfaction. We envision a future where technology seamlessly enhances every aspect of business operations, and we're committed to making that future a reality."
+    },
+    "values": [
+      {
+        "title": "Innovation",
+        "description": "We embrace cutting-edge technologies and creative problem-solving to deliver solutions that push boundaries",
+        "icon": "💡"
+      },
+      {
+        "title": "Quality",
+        "description": "Excellence is our standard. We deliver robust, scalable, and maintainable software that stands the test of time",
+        "icon": "⭐"
+      },
+      {
+        "title": "Integrity",
+        "description": "We build trust through transparency, honesty, and ethical business practices in every client interaction",
+        "icon": "🤝"
+      },
+      {
+        "title": "Collaboration",
+        "description": "Success is a team effort. We work closely with clients, treating their goals as our own",
+        "icon": "👥"
+      },
+      {
+        "title": "Agility",
+        "description": "We adapt quickly to changing requirements and market conditions, ensuring timely delivery",
+        "icon": "⚡"
+      },
+      {
+        "title": "Growth",
+        "description": "Continuous learning and improvement drive our team and our solutions forward",
+        "icon": "📈"
+      }
+    ]
+  },
+  "footer": {
+    "links": [
+      { "text": "Home", "url": "index.html" },
+      { "text": "About", "url": "about.html" },
+      { "text": "Services", "url": "services.html" },
+      { "text": "Projects", "url": "projects.html" },
+      { "text": "Contact", "url": "contact.html" }
+    ],
+    "social": [
+      { "platform": "LinkedIn", "url": "#", "icon": "💼" },
+      { "platform": "Twitter", "url": "#", "icon": "🐦" },
+      { "platform": "GitHub", "url": "#", "icon": "🔗" },
+      { "platform": "Facebook", "url": "#", "icon": "📘" }
+    ],
+    "copyright": "© 2026 DAL-sh. All rights reserved."
+  }
+}

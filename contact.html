@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contact.title">Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="DAL-sh Logo" class="logo-img">
+        </a>
+
+        <button class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="career.html" data-i18n="nav.career">Career</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact" class="active">Contact</a></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+
+        <div id="google_translate_element"></div>
+</nav>
+
+<!-- ================= PAGE HEADER ================= -->
+<section class="page-header">
+    <div class="container">
+        <h1 data-i18n="contact.title">Contact Us</h1>
+        <p data-i18n="contact.subtitle">Get in touch with our team</p>
+    </div>
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2 data-i18n="contact.form.title">Send Us a Message</h2>
+
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.form.name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-i18n="contact.form.email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" data-i18n="contact.form.subject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.form.message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">
+                        Send Message
+                    </button>
+
+                    <div class="form-message" id="form-message"></div>
+                </form>
+            </div>
+
+            <!-- Contact Info + Map -->
+            <div class="contact-info-container">
+                <h2 data-i18n="contact.info.title">Contact Information</h2>
+                <div class="contact-info" id="contact-info"></div>
+
+                <div class="map-container" id="map-container"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= BRANCHES SECTION ================= -->
+<section class="branches-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 data-i18n="contact.branches.title">Our Global Offices</h2>
+            <p data-i18n="contact.branches.subtitle">
+                Find us at any of our worldwide locations
+            </p>
+        </div>
+
+        <div class="branches-grid" id="branches-grid">
+            <!-- Rendered by CMS from contact.json -->
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-sitemap" id="footer-sitemap"></div>
+    </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="js/cms.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    CMS.renderContactInfo();
+    CMS.renderMap();
+    CMS.renderBranches();
+    CMS.renderFooter();
+</script>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', 
+        includedLanguages: 'en,zh-CN,ms', // English, Chinese (Simplified), Malay
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | DAL-sh</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="DAL-sh Logo" class="logo-img">
+        </a>
+
+        <button class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="career.html" data-i18n="nav.career">Career</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+
+        <div id="google_translate_element"></div>
+    </div>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <h1 data-i18n="section.projects">Our Projects</h1>
+    </div>
+</section>
+
+<section class="projects-filter">
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="ongoing">Ongoing</button>
+    </div>
+</section>
+
+<section class="projects-page">
+    <div class="container">
+        <div class="projects-full-grid" id="projects-full-grid"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-sitemap" id="footer-sitemap"></div>
+    </div>
+</footer>
+
+<script src="js/cms.js"></script>
+<script src="js/main.js"></script>
+<script>
+    CMS.renderAllProjects();
+    CMS.renderFooter();
+</script>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', 
+        includedLanguages: 'en,zh-CN,ms', // English, Chinese (Simplified), Malay
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

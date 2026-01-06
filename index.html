@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAL-sh | Professional Software Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="DAL-sh Logo" class="logo-img">
+            </a>
+            
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" data-i18n="nav.home" class="active">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+            <li><a href="career.html" data-i18n="nav.career">Career</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+                <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+
+            <div id="google_translate_element"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" id="hero-content">
+                <!-- Content loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <img src="assets/images/logo.png" alt="DAL-sh Logo" class="home-logo">
+                <div id="intro-content"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Highlight -->
+    <section class="services-highlight">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="services">Our Services</h2>
+                <p>Comprehensive solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid" id="services-grid">
+                <!-- Services loaded from JSON -->
+            </div>
+            <div class="cta-center">
+                <a href="services.html" class="btn btn-primary">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Showcasing our recent work and success stories</p>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects loaded from JSON -->
+            </div>
+            <div class="cta-center">
+                <a href="projects.html" class="btn btn-secondary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Bulletin Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest News & Updates</h2>
+                <p>Stay informed about our latest achievements and company news</p>
+            </div>
+            <div class="news-grid" id="news-grid">
+                <!-- News loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" id="cta-content">
+                <!-- Content loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Sitemap -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-sitemap" id="footer-sitemap">
+                <!-- Sitemap loaded from JSON -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cms.js"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', 
+        includedLanguages: 'en,zh-CN,ms', // English, Chinese (Simplified), Malay
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        CMS.renderHero();
+        CMS.renderIntro();
+        CMS.renderServicesHighlight();
+        CMS.renderFeaturedProjects();
+        CMS.renderNewsBulletin();
+        CMS.renderCTA();
+        CMS.renderFooter();
+    </script>
+
+</body>
+</html>

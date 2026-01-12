@@ -35,17 +35,28 @@ auth.onAuthStateChanged(user => {
 */
 
 // js/auth.js - BYPASS MODE
-
-// 1. Fake Login function (called by login.html)
 function login() {
-    // Simply redirect to admin page without checking password
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  
+  // Simple hardcoded check (Note: This is NOT secure for production)
+  if (email === "admin@dal-sh.com" && password === "admin123") {
+    // Save a "logged in" flag to the browser
+    localStorage.setItem('isLoggedIn', 'true');
     window.location.href = 'admin.html';
+  } else {
+    document.getElementById('error').textContent = "Invalid credentials";
+  }
 }
 
-// 2. Fake Logout function (called by admin.html)
 function logout() {
-    window.location.href = 'login.html';
+  localStorage.removeItem('isLoggedIn');
+  window.location.href = 'login.html';
 }
 
-// 3. Remove the "onAuthStateChanged" check so it doesn't kick you out
-// (We leave this empty so the admin page doesn't redirect you back to login)
+// Add this to the bottom of js/auth.js to protect admin.html
+if (window.location.pathname.endsWith('admin.html')) {
+  if (!localStorage.getItem('isLoggedIn')) {
+    window.location.href = 'login.html';
+  }
+}

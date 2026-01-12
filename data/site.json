@@ -4,7 +4,6 @@
     "tagline": "Innovative Software Solutions for Modern Businesses",
     "description": "TECH Hub is a leading software house specializing in custom software development, cloud solutions, and digital transformation services."
   },
-
   "home": {
     "hero": {
       "title": "Transform Your Business with Cutting-Edge Software",
@@ -14,12 +13,10 @@
         { "text": "Contact Us", "link": "contact.html", "style": "btn-primary btn-glow" }
       ]
     },
-
     "introduction": {
       "title": "Welcome to TECH Hub",
       "content": "We are a forward-thinking software development company committed to delivering exceptional digital solutions. With expertise spanning web development, mobile applications, cloud infrastructure, and enterprise systems, we transform complex business challenges into elegant software solutions."
     },
-
     "news": [
       {
         "title": "TECH Hub Wins Tech Innovation Award 2026",
@@ -46,7 +43,6 @@
         "link": "#"
       }
     ],
-
     "cta": {
       "title": "Ready to Start Your Next Project?",
       "description": "Let's collaborate to bring your vision to life with innovative technology solutions",
@@ -57,23 +53,19 @@
       }
     }
   },
-
   "about": {
     "overview": {
       "title": "Building Tomorrow's Technology Today",
       "content": "Founded with a vision to revolutionize how businesses leverage technology, TECH Hub has grown into a trusted partner for organizations seeking digital transformation."
     },
-
     "mission": {
       "title": "Our Mission",
       "content": "To empower businesses through innovative software solutions that drive efficiency, growth, and competitive advantage."
     },
-
     "vision": {
       "title": "Our Vision",
       "content": "To be recognized globally as a leading software house that sets the standard for quality, innovation, and client satisfaction."
     },
-
     "values": [
       { "title": "Innovation", "description": "We embrace cutting-edge technologies", "icon": "💡" },
       { "title": "Quality", "description": "Excellence is our standard", "icon": "⭐" },
@@ -82,7 +74,6 @@
       { "title": "Agility", "description": "We adapt quickly", "icon": "⚡" },
       { "title": "Growth", "description": "Continuous improvement", "icon": "📈" }
     ],
-
     "organization": {
       "ceo": [
         {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"},
@@ -112,13 +103,11 @@
       ]
     }
   },
-
   "rnd": {
     "intro": {
       "title": "Driving Innovation Through Research",
       "content": "Our Research & Development division focuses on exploring emerging technologies, building experimental systems, and transforming ideas into real-world solutions."
     },
-
     "focus": [
       {
         "title": "Artificial Intelligence",
@@ -136,7 +125,6 @@
         "icon": "🔐"
       }
     ],
-
     "projects": [
       {
         "name": "AI Code Assistant",
@@ -149,7 +137,6 @@
         "status": "Prototype"
       }
     ],
-
     "cta": {
       "title": "Interested in Collaborating?",
       "description": "We welcome research partnerships, academic collaboration, and innovation-driven projects.",
@@ -159,16 +146,8 @@
       }
     }
   },
-
   "footer": {
-    "links": [
-      { "text": "Home", "url": "index.html" },
-      { "text": "About", "url": "about.html" },
-      { "text": "Services", "url": "services.html" },
-      { "text": "Projects", "url": "projects.html" },
-      { "text": "Career", "url": "career.html" },
-      { "text": "Contact", "url": "contact.html" }
-    ],
+    "links": [],
     "social": [
       { "platform": "LinkedIn", "url": "#", "icon": "💼" },
       { "platform": "Twitter", "url": "#", "icon": "🐦" },
@@ -176,7 +155,7 @@
       { "platform": "Facebook", "url": "#", "icon": "📘" }
     ],
     "contact": {
-      "email": "info@TECH Hub.com",
+      "email": "info@TECHHub.com",
       "phone": "+1 (555) 123-4567",
       "address": "San Francisco, CA"
     },

@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "name": "FinanceFlow Pro",
+      "description": "A comprehensive financial management platform for SMEs, featuring real-time reporting, automated invoicing, and integrated payment processing. The system processes over $50M in transactions monthly.",
+      "technologies": ["React", "Node.js", "PostgreSQL", "AWS"],
+      "status": "Completed",
+      "image": "https://via.placeholder.com/400x250/2563eb/ffffff?text=FinanceFlow+Pro"
+    },
+    {
+      "name": "HealthConnect Mobile",
+      "description": "Healthcare appointment booking and telemedicine platform connecting patients with healthcare providers. Features video consultations, prescription management, and health records access.",
+      "technologies": ["React Native", "Firebase", "WebRTC", "Node.js"],
+      "status": "Completed",
+      "image": "https://via.placeholder.com/400x250/10b981/ffffff?text=HealthConnect"
+    },
+    {
+      "name": "RetailHub Analytics",
+      "description": "Advanced analytics dashboard for retail chains providing real-time insights into sales, inventory, and customer behavior across multiple locations with predictive analytics capabilities.",
+      "technologies": ["Vue.js", "Python", "MongoDB", "TensorFlow"],
+      "status": "Completed",
+      "image": "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=RetailHub"
+    },
+    {
+      "name": "EduLearn Platform",
+      "description": "Comprehensive e-learning management system with interactive courses, live classes, assignment tracking, and progress analytics for educational institutions and corporate training.",
+      "technologies": ["Angular", "Django", "PostgreSQL", "Redis"],
+      "status": "Ongoing",
+      "image": "https://via.placeholder.com/400x250/f59e0b/ffffff?text=EduLearn"
+    },
+    {
+      "name": "LogisticsTrack Pro",
+      "description": "End-to-end logistics management solution with real-time tracking, route optimization, warehouse management, and automated dispatch scheduling for delivery companies.",
+      "technologies": ["React", "Express", "MySQL", "Google Maps API"],
+      "status": "Completed",
+      "image": "https://via.placeholder.com/400x250/ec4899/ffffff?text=LogisticsTrack"
+    },
+    {
+      "name": "PropertyView Portal",
+      "description": "Real estate marketplace with virtual tours, AI-powered property recommendations, mortgage calculators, and integrated CRM for agents managing listings and client relationships.",
+      "technologies": ["Next.js", "Strapi", "PostgreSQL", "Stripe"],
+      "status": "Ongoing",
+      "image": "https://via.placeholder.com/400x250/06b6d4/ffffff?text=PropertyView"
+    },
+    {
+      "name": "FoodieDelivery App",
+      "description": "Multi-vendor food delivery platform with real-time order tracking, AI-based restaurant recommendations, loyalty programs, and integrated payment gateway serving 100K+ users.",
+      "technologies": ["Flutter", "Node.js", "MongoDB", "Socket.io"],
+      "status": "Completed",
+      "image": "https://via.placeholder.com/400x250/ef4444/ffffff?text=FoodieDelivery"
+    },
+    {
+      "name": "ManufactureIQ System",
+      "description": "Smart manufacturing execution system with IoT integration, real-time production monitoring, quality control automation, and predictive maintenance capabilities.",
+      "technologies": ["React", "Java Spring", "InfluxDB", "MQTT"],
+      "status": "Ongoing",
+      "image": "https://via.placeholder.com/400x250/3b82f6/ffffff?text=ManufactureIQ"
+    },
+    {
+      "name": "HRConnect Suite",
+      "description": "All-in-one HR management system with recruitment, onboarding, performance management, payroll processing, and employee self-service portal for mid-size enterprises.",
+      "technologies": ["Vue.js", "Laravel", "MySQL", "AWS"],
+      "status": "Completed",
+      "image": "https://via.placeholder.com/400x250/14b8a6/ffffff?text=HRConnect"
+    }
+  ]
+}

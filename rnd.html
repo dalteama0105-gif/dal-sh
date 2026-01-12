@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Development | TECH Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="TECH Hub Logo" class="logo-img">
+        </a>
+
+        <button class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="member.html">Member</a></li>
+            <li><a href="rnd.html" class="active">R&D</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+
+        <div id="google_translate_element"></div>
+    </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="container">
+        <h1>Research & Development</h1>
+        <p>Innovating the future through research and experimentation</p>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+    <div class="container">
+        <div id="rnd-intro"></div>
+    </div>
+</section>
+
+<!-- FOCUS AREAS -->
+<section class="services-highlight">
+    <div class="container">
+        <div class="section-header">
+            <h2>R&D Focus Areas</h2>
+        </div>
+        <div class="services-grid" id="rnd-focus-grid"></div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-page">
+    <div class="container">
+        <div class="section-header">
+            <h2>Ongoing Research</h2>
+        </div>
+        <div class="projects-full-grid" id="rnd-projects-grid"></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content" id="rnd-cta"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-sitemap" id="footer-sitemap"></div>
+    </div>
+</footer>
+
+<script src="js/cms.js"></script>
+<script src="js/main.js"></script>
+<script>
+    CMS.renderRndIntro();
+    CMS.renderRndFocus();
+    CMS.renderRndProjects();
+    CMS.renderRndCTA();
+    CMS.renderFooter();
+</script>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', 
+        includedLanguages: 'en,zh-CN,ms', // English, Chinese (Simplified), Malay
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "contact": {
+    "email": "info@dal-sh.com",
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Tech Boulevard, Suite 500, San Francisco, CA 94102, USA",
+    "hours": "Monday - Friday: 9:00 AM - 6:00 PM PST"
+  },
+  "map": {
+    "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019509109446!2d-122.41941548468208!3d37.77492977975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter%20HQ!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus",
+    "latitude": "37.7749",
+    "longitude": "-122.4194"
+  },
+  "branches": [
+    {
+      "city": "San Francisco",
+      "type": "Headquarters",
+      "address": "123 Tech Boulevard, Suite 500, San Francisco, CA 94102, USA",
+      "email": "sf@dal-sh.com",
+      "phone": "+1 (555) 123-4567"
+    },
+    {
+      "city": "New York",
+      "type": "Regional Office",
+      "address": "456 Innovation Avenue, Floor 12, New York, NY 10001, USA",
+      "email": "ny@dal-sh.com",
+      "phone": "+1 (555) 234-5678"
+    },
+    {
+      "city": "Austin",
+      "type": "Development Center",
+      "address": "789 Startup Lane, Building C, Austin, TX 78701, USA",
+      "email": "austin@dal-sh.com",
+      "phone": "+1 (555) 345-6789"
+    },
+    {
+      "city": "London",
+      "type": "European Office",
+      "address": "321 Tech Street, Level 8, London EC2A 4NE, United Kingdom",
+      "email": "london@dal-sh.com",
+      "phone": "+44 20 1234 5678"
+    },
+    {
+      "city": "Singapore",
+      "type": "Asia Pacific Office",
+      "address": "555 Marina Boulevard, Tower 3, Singapore 018980",
+      "email": "singapore@dal-sh.com",
+      "phone": "+65 6123 4567"
+    },
+    {
+      "city": "Toronto",
+      "type": "Canadian Office",
+      "address": "888 Bay Street, Suite 1500, Toronto, ON M5S 3A1, Canada",
+      "email": "toronto@dal-sh.com",
+      "phone": "+1 (416) 123-4567"
+    }
+  ]
+}

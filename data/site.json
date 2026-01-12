@@ -1,0 +1,185 @@
+{
+  "company": {
+    "name": "TECH Hub",
+    "tagline": "Innovative Software Solutions for Modern Businesses",
+    "description": "TECH Hub is a leading software house specializing in custom software development, cloud solutions, and digital transformation services."
+  },
+
+  "home": {
+    "hero": {
+      "title": "Transform Your Business with Cutting-Edge Software",
+      "tagline": "We deliver innovative technology solutions that drive growth and efficiency for businesses worldwide",
+      "cta": [
+        { "text": "Explore Services", "link": "services.html", "style": "btn-light" },
+        { "text": "Contact Us", "link": "contact.html", "style": "btn-primary btn-glow" }
+      ]
+    },
+
+    "introduction": {
+      "title": "Welcome to TECH Hub",
+      "content": "We are a forward-thinking software development company committed to delivering exceptional digital solutions. With expertise spanning web development, mobile applications, cloud infrastructure, and enterprise systems, we transform complex business challenges into elegant software solutions."
+    },
+
+    "news": [
+      {
+        "title": "TECH Hub Wins Tech Innovation Award 2026",
+        "excerpt": "We're proud to announce that TECH Hub has been recognized as the leading innovator in enterprise software solutions at the Global Tech Awards 2026.",
+        "date": "January 3, 2026",
+        "category": "Awards",
+        "image": "https://via.placeholder.com/400x250/10b981/ffffff?text=Award+2026",
+        "link": "#"
+      },
+      {
+        "title": "Launching AI-Powered Development Tools",
+        "excerpt": "Introducing our new suite of AI-enhanced development tools that accelerate software delivery by 40%.",
+        "date": "December 28, 2025",
+        "category": "Product Launch",
+        "image": "https://via.placeholder.com/400x250/8b5cf6/ffffff?text=AI+Tools",
+        "link": "#"
+      },
+      {
+        "title": "New Partnership with Global Tech Giants",
+        "excerpt": "TECH Hub announces strategic partnerships with leading technology companies.",
+        "date": "December 20, 2025",
+        "category": "Partnership",
+        "image": "https://via.placeholder.com/400x250/f59e0b/ffffff?text=Partnership",
+        "link": "#"
+      }
+    ],
+
+    "cta": {
+      "title": "Ready to Start Your Next Project?",
+      "description": "Let's collaborate to bring your vision to life with innovative technology solutions",
+      "button": {
+        "text": "Get Started Today",
+        "link": "contact.html",
+        "style": "btn-light"
+      }
+    }
+  },
+
+  "about": {
+    "overview": {
+      "title": "Building Tomorrow's Technology Today",
+      "content": "Founded with a vision to revolutionize how businesses leverage technology, TECH Hub has grown into a trusted partner for organizations seeking digital transformation."
+    },
+
+    "mission": {
+      "title": "Our Mission",
+      "content": "To empower businesses through innovative software solutions that drive efficiency, growth, and competitive advantage."
+    },
+
+    "vision": {
+      "title": "Our Vision",
+      "content": "To be recognized globally as a leading software house that sets the standard for quality, innovation, and client satisfaction."
+    },
+
+    "values": [
+      { "title": "Innovation", "description": "We embrace cutting-edge technologies", "icon": "💡" },
+      { "title": "Quality", "description": "Excellence is our standard", "icon": "⭐" },
+      { "title": "Integrity", "description": "Transparency and honesty", "icon": "🤝" },
+      { "title": "Collaboration", "description": "Success is a team effort", "icon": "👥" },
+      { "title": "Agility", "description": "We adapt quickly", "icon": "⚡" },
+      { "title": "Growth", "description": "Continuous improvement", "icon": "📈" }
+    ],
+
+    "organization": {
+      "ceo": [
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"}
+      ],
+      "executive": [
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "CTO", "department": "Technology"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "COO", "department": "Operations"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "VP Engineering", "department": "Engineering"}
+      ],
+      "tech": [
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "Software Developer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "Software Engineer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "Mobile Developer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "AI Developer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "Security Developer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "DevOps Engineer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "DevOps Engineer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "Cloud Engineer"}
+      ]
+    }
+  },
+
+  "rnd": {
+    "intro": {
+      "title": "Driving Innovation Through Research",
+      "content": "Our Research & Development division focuses on exploring emerging technologies, building experimental systems, and transforming ideas into real-world solutions."
+    },
+
+    "focus": [
+      {
+        "title": "Artificial Intelligence",
+        "description": "Machine learning, computer vision, NLP, and applied AI research",
+        "icon": "🤖"
+      },
+      {
+        "title": "Cloud & Distributed Systems",
+        "description": "Scalable cloud-native architectures and high-availability systems",
+        "icon": "☁️"
+      },
+      {
+        "title": "Cybersecurity",
+        "description": "Security automation, threat detection, and zero-trust models",
+        "icon": "🔐"
+      }
+    ],
+
+    "projects": [
+      {
+        "name": "AI Code Assistant",
+        "description": "An internal AI-powered assistant to accelerate software development",
+        "status": "Ongoing"
+      },
+      {
+        "name": "Smart Infrastructure Platform",
+        "description": "Researching scalable infrastructure monitoring using AI",
+        "status": "Prototype"
+      }
+    ],
+
+    "cta": {
+      "title": "Interested in Collaborating?",
+      "description": "We welcome research partnerships, academic collaboration, and innovation-driven projects.",
+      "button": {
+        "text": "Contact R&D Team",
+        "link": "contact.html"
+      }
+    }
+  },
+
+  "footer": {
+    "links": [
+      { "text": "Home", "url": "index.html" },
+      { "text": "About", "url": "about.html" },
+      { "text": "Services", "url": "services.html" },
+      { "text": "Projects", "url": "projects.html" },
+      { "text": "Career", "url": "career.html" },
+      { "text": "Contact", "url": "contact.html" }
+    ],
+    "social": [
+      { "platform": "LinkedIn", "url": "#", "icon": "💼" },
+      { "platform": "Twitter", "url": "#", "icon": "🐦" },
+      { "platform": "GitHub", "url": "#", "icon": "🔗" },
+      { "platform": "Facebook", "url": "#", "icon": "📘" }
+    ],
+    "contact": {
+      "email": "info@TECH Hub.com",
+      "phone": "+1 (555) 123-4567",
+      "address": "San Francisco, CA"
+    },
+    "copyright": "© 2026 TECH Hub. All rights reserved."
+  }
+}

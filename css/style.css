@@ -59,6 +59,7 @@ body {
     align-items: center;
     padding: 1rem 20px;
     gap: 2rem;
+    max-width: 100%;
 }
 
 .logo {
@@ -1505,4 +1506,84 @@ body {
     border-radius: 12px;
     object-fit: cover;
     margin-bottom: 1rem;
+}
+
+/* ===================================
+   DROPDOWN MENU STYLES
+   =================================== */
+
+/* Container for the dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* The dropdown menu (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 240px;
+    box-shadow: var(--shadow-lg);
+    border-radius: 8px;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+    border: 1px solid var(--border-color);
+    margin-top: 0.5rem; /* Small gap for visual separation */
+}
+
+/* Links inside the dropdown */
+.dropdown-content li a {
+    color: var(--text-dark);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    white-space: nowrap; /* Keep text on one line */
+}
+
+/* Remove the main nav underline effect for dropdown items */
+.dropdown-content li a::after {
+    display: none;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content li a:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    padding-left: 25px; /* Slight movement effect */
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeInUp 0.3s ease;
+}
+
+/* ===================================
+   MOBILE RESPONSIVE TWEAKS
+   =================================== */
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 20px;
+        width: 100%;
+        background-color: transparent;
+        display: none; /* Hidden until hover/click on mobile */
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown-content li a {
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
 }

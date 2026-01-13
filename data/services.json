@@ -51,14 +51,14 @@
       "icon": "🔌"
     },
     {
-      "title": "Maintenance & Support",
-      "description": "Ongoing support to keep your software running smoothly. We provide monitoring, updates, bug fixes, and enhancements to ensure your systems remain secure, efficient, and up-to-date.",
-      "icon": "🛠️"
+      "title": "Digitization",
+      "description": "Transition from analog to digital. We convert physical records and manual inputs into secure digital formats to improve data accessibility, storage, and integrity.",
+      "icon": "💾"
     },
     {
-      "title": "Data Analytics & BI",
-      "description": "Transform data into actionable insights with advanced analytics and business intelligence solutions. We help you visualize, analyze, and leverage your data for informed decision-making.",
-      "icon": "📈"
+      "title": "Digitalization",
+      "description": "Transform your business operations using digital technologies. We implement smart workflows and automation to enhance efficiency, drive innovation, and unlock new value.",
+      "icon": "🌐"
     }
   ]
 }

@@ -121,9 +121,24 @@
         "icon": "☁️"
       },
       {
-        "title": "Cybersecurity",
-        "description": "Security automation, threat detection, and zero-trust models",
-        "icon": "🔐"
+        "title": "IoT Solutions",
+        "description": "Design and development of Internet of Things systems including device integration, real-time monitoring, data analytics, and smart automation for industrial and consumer use cases.",
+        "icon": "🌐"
+      },
+      {
+        "title": "SaaS Platforms",
+        "description": "End-to-end Software-as-a-Service platform development including multi-tenant architecture, subscription management, scalability, and cloud-native deployment.",
+        "icon": "☁️"
+      },
+      {
+        "title": "Gig Platform Development",
+        "description": "Custom gig economy platforms connecting service providers and customers with features such as real-time matching, payments, ratings, and workflow management.",
+        "icon": "🤝"
+      },
+      {
+        "title": "STT (Speech-to-Text)",
+        "description": "Advanced speech-to-text solutions powered by AI for transcription, voice commands, multilingual recognition, and real-time speech processing.",
+        "icon": "🎙️"
       }
     ],
     "projects": [

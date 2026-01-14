@@ -54,6 +54,7 @@
         <button class="tab-btn" onclick="switchTab('about')">About</button>
         <button class="tab-btn" onclick="switchTab('organization')">Member</button>
         <button class="tab-btn" onclick="switchTab('rnd')">R&D</button>
+        <button class="tab-btn" onclick="switchTab('products-page')">Products</button>
         <button class="tab-btn" onclick="switchTab('services')">Services</button>
         <button class="tab-btn" onclick="switchTab('projects')">Projects</button>
         <button class="tab-btn" onclick="switchTab('career')">Career</button>
@@ -151,8 +152,6 @@
         </div>
     </div>
 
-    <button class="tab-btn" onclick="switchTab('products-page')">Products</button>
-
     <div id="tab-products-page" class="admin-section">
         <h2>Product Page Content</h2>
         <div id="product-page-editor"></div>
@@ -238,7 +237,9 @@
         document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
         
         document.getElementById('tab-' + tabName).classList.add('active');
-        event.target.classList.add('active');
+        // Fix to highlight the correct button if clicked
+        const btns = document.querySelectorAll(`.tab-btn[onclick="switchTab('${tabName}')"]`);
+        if(btns.length > 0) btns[0].classList.add('active');
     }
 </script>
 

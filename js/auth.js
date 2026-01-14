@@ -60,3 +60,4 @@ if (window.location.pathname.endsWith('admin.html')) {
     window.location.href = 'login.html';
   }
 }
+

@@ -77,16 +77,16 @@
     ],
     "organization": {
       "ceo": [
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Chief Executive Officer", "department": "Executive Leadership"}
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"}
       ],
       "executive": [
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "CTO", "department": "Technology"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "CEO", "department": "Technology"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "COO", "department": "Operations"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CTO", "department": "Finance"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
@@ -172,8 +172,8 @@
     ],
     "contact": {
       "email": "info@TECHHub.com",
-      "phone": "+1 (555) 123-4567",
-      "address": "San Francisco, CA"
+      "phone": "+60 4-226 124",
+      "address": "Penang, Malaysia"
     },
     "copyright": "© 2026 TECH Hub. All rights reserved."
   }

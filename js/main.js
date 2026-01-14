@@ -364,3 +364,49 @@ document.querySelectorAll(".lang-toggle button").forEach(btn => {
 // Init
 loadLanguage(currentLang);
 */
+
+// js/main.js - Add this to the bottom
+
+function checkUserLogin() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const role = localStorage.getItem('userRole'); // 'admin' or 'user'
+    const name = localStorage.getItem('userName');
+    
+    const navMenu = document.getElementById('navMenu');
+    
+    // Remove existing Login/Logout buttons to prevent duplicates
+    const existingBtn = document.getElementById('nav-auth-btn');
+    if(existingBtn) existingBtn.remove();
+    const existingAdminBtn = document.getElementById('nav-admin-link');
+    if(existingAdminBtn) existingAdminBtn.remove();
+
+    if (isLoggedIn && navMenu) {
+        // 1. If Developer/Admin, add link to Admin Panel
+        if (role === 'admin') {
+            const adminLi = document.createElement('li');
+            adminLi.id = 'nav-admin-link';
+            adminLi.innerHTML = `<a href="admin.html" style="color: red; font-weight: bold;">Admin Panel</a>`;
+            navMenu.appendChild(adminLi);
+        }
+
+        // 2. Add Logout Button
+        const li = document.createElement('li');
+        li.id = 'nav-auth-btn';
+        li.innerHTML = `<a href="#" onclick="logout()" style="color: var(--primary-color); font-weight: bold;">Logout (${name})</a>`;
+        navMenu.appendChild(li);
+
+    } else if (navMenu) {
+        // 3. If NOT logged in, show Login Button
+        const li = document.createElement('li');
+        li.id = 'nav-auth-btn';
+        li.innerHTML = `<a href="login.html">Login</a>`;
+        navMenu.appendChild(li);
+    }
+}
+
+// Execute check on load
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof checkUserLogin === 'function') {
+        checkUserLogin();
+    }
+});

@@ -86,6 +86,26 @@ const CMS = {
         introContent.classList.add('fade-in');
     },
 
+    // Add to CMS object
+    async renderProductsPage() {
+        const data = await this.fetchData('data/products.json');
+        if (!data) return;
+
+        // Assuming products.html has a container with id="product-list-container"
+        const container = document.getElementById('product-list-container');
+        if (!container) return;
+
+        container.innerHTML = data.products.map(p => `
+            <div id="${p.id}" class="project-card fade-in" style="margin-bottom: 2rem;">
+                <img src="${p.image}" alt="${p.title}" class="project-image" style="height: 300px;">
+                <div class="project-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.description}</p>
+                </div>
+            </div>
+        `).join('');
+    },
+
     /**
      * Render services (homepage highlight)
      */

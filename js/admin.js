@@ -7,6 +7,7 @@ let servicesData = {};
 let projectsData = {};
 let careerData = {};
 let contactData = {};
+let productPageData = {};
 
 // --- Data Fetching ---
 async function fetchJSON(path) {
@@ -300,6 +301,43 @@ function addRndFocus() { siteData.rnd.focus.push({title:"New Area", icon:"🔬",
 function addRndProject() { siteData.rnd.projects.push({name:"Experiment X", status:"Prototype", description:"Description"}); renderRndEditor(); }
 
 
+// 2. Update loadAdminData() to fetch the new JSON
+async function loadAdminData() {
+    // ... existing fetches ...
+    productPageData = await fetchJSON('data/products.json'); // Add this line
+    
+    // ... existing renders ...
+    renderProductPageEditor(); // Add this line
+}
+
+// 3. Add these new functions to js/admin.js
+function renderProductPageEditor() {
+    const el = document.getElementById('product-page-editor');
+    el.innerHTML = '';
+    (productPageData.products || []).forEach((p, i) => {
+        el.insertAdjacentHTML('beforeend', `
+            <div class="admin-card">
+                <div class="form-grid">
+                    <div><label>ID (Anchor)</label><input value="${escapeHtml(p.id)}" onchange="productPageData.products[${i}].id=this.value"></div>
+                    <div class="full-width"><label>Title</label><input value="${escapeHtml(p.title)}" onchange="productPageData.products[${i}].title=this.value"></div>
+                    <div class="full-width"><label>Image URL</label><input value="${escapeHtml(p.image)}" onchange="productPageData.products[${i}].image=this.value"></div>
+                    <div class="full-width"><label>Description</label><textarea onchange="productPageData.products[${i}].description=this.value">${escapeHtml(p.description)}</textarea></div>
+                </div>
+                <button class="btn-danger delete-btn" onclick="productPageData.products.splice(${i},1); renderProductPageEditor()">X</button>
+            </div>
+        `);
+    });
+}
+
+function addProductItem() {
+    if (!productPageData.products) productPageData.products = [];
+    productPageData.products.push({id: "new-id", title: "New Product", description: "Description", image: ""});
+    renderProductPageEditor();
+}
+
+function saveProductPage() {
+    downloadJSON(productPageData, 'products.json');
+}
 // =======================================================
 // 2. OTHER JSON EDITORS
 // =======================================================

@@ -77,7 +77,7 @@
     ],
     "organization": {
       "ceo": [
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
+        {"name": "Dato Firdau", "photo": "assets/images/logo.png", "title": "Founder"},
         {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
         {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
         {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"}
@@ -93,8 +93,8 @@
         {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "CSO", "department": "Strategy"}
       ],
       "tech": [
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "Architecture Design"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "Software Developer"},
+        { "photo": "assets/images/Image(Alex).jpeg", "name": "Alexander Huang", "title": "System Architecture Design"},
+        { "photo": "assets/images/Image(Darren).jpg", "name": "Darren Lau", "title": "Software Developer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "Software Engineer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "Mobile Developer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "AI Developer"},

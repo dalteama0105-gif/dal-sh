@@ -1,412 +1,480 @@
 /**
- * Main.js - Application Logic
- * Handles UI interactions, form submissions, and dynamic behaviors
+ * admin.js - Content Management Logic
  */
 
-// Mobile Navigation Toggle
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
+let siteData = {};
+let servicesData = {};
+let projectsData = {};
+let careerData = {};
+let contactData = {};
+let productPageData = {};
 
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-    });
+// --- Data Fetching ---
+async function fetchJSON(path) {
+    try {
+        const res = await fetch(path);
+        if(!res.ok) throw new Error("HTTP error " + res.status);
+        return await res.json();
+    } catch(e) { 
+        console.error("Error loading " + path, e); 
+        return {}; 
+    }
 }
 
-// Close mobile menu when clicking a link
-if (navMenu) {
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
+async function loadAdminData() {
+    // Fetch all data
+    siteData = await fetchJSON('data/site.json');
+    servicesData = await fetchJSON('data/services.json');
+    projectsData = await fetchJSON('data/projects.json');
+    careerData = await fetchJSON('data/career.json');
+    contactData = await fetchJSON('data/contact.json');
+    productPageData = await fetchJSON('data/products.json');
+
+    // Render all editors
+    renderGlobalEditor();
+    renderHomeEditor();
+    renderAboutEditor();
+    renderOrganizationEditor();
+    renderRndEditor();
+    renderServicesEditor();
+    renderProjectsEditor();
+    renderCareerEditors();
+    renderContactPageEditors();
+    renderProductPageEditor();
+}
+
+// --- Utilities ---
+function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function downloadJSON(data, filename) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename; a.click();
+    URL.revokeObjectURL(url);
+}
+
+// =======================================================
+// 1. SITE.JSON EDITORS
+// =======================================================
+
+// --- Global & Footer ---
+function renderGlobalEditor() {
+    const el = document.getElementById('global-editor');
+    if(!el) return;
+    if(!siteData.company) siteData.company = {};
+    if(!siteData.footer) siteData.footer = { contact: {} };
+
+    el.innerHTML = `
+        <div class="form-grid">
+            <div class="full-width">
+                <label>Company Name</label>
+                <input value="${escapeHtml(siteData.company.name)}" onchange="siteData.company.name=this.value">
+            </div>
+            <div class="full-width">
+                <label>Tagline</label>
+                <input value="${escapeHtml(siteData.company.tagline)}" onchange="siteData.company.tagline=this.value">
+            </div>
+            <div class="full-width">
+                <label>Description (SEO)</label>
+                <textarea onchange="siteData.company.description=this.value">${escapeHtml(siteData.company.description)}</textarea>
+            </div>
+            <div class="full-width">
+                <label>Footer Copyright</label>
+                <input value="${escapeHtml(siteData.footer.copyright)}" onchange="siteData.footer.copyright=this.value">
+            </div>
+            <div>
+                <label>Contact Email</label>
+                <input value="${escapeHtml(siteData.footer.contact.email)}" onchange="siteData.footer.contact.email=this.value">
+            </div>
+            <div>
+                <label>Contact Phone</label>
+                <input value="${escapeHtml(siteData.footer.contact.phone)}" onchange="siteData.footer.contact.phone=this.value">
+            </div>
+            <div class="full-width">
+                <label>Contact Address</label>
+                <input value="${escapeHtml(siteData.footer.contact.address)}" onchange="siteData.footer.contact.address=this.value">
+            </div>
+        </div>
+    `;
+}
+
+// --- Home Page ---
+function renderHomeEditor() {
+    const el = document.getElementById('home-editor');
+    if(!el) return;
+    const home = siteData.home || {};
+    
+    el.innerHTML = `
+        <div class="admin-card">
+            <h3>Hero Section</h3>
+            <label>Hero Title</label>
+            <input value="${escapeHtml(home.hero.title)}" onchange="siteData.home.hero.title=this.value">
+            <label>Hero Tagline</label>
+            <textarea onchange="siteData.home.hero.tagline=this.value">${escapeHtml(home.hero.tagline)}</textarea>
+        </div>
+        <div class="admin-card">
+            <h3>Introduction</h3>
+            <label>Title</label>
+            <input value="${escapeHtml(home.introduction.title)}" onchange="siteData.home.introduction.title=this.value">
+            <label>Content</label>
+            <textarea style="height:120px" onchange="siteData.home.introduction.content=this.value">${escapeHtml(home.introduction.content)}</textarea>
+        </div>
+        <div class="admin-card">
+            <h3>Bottom CTA</h3>
+            <label>Title</label>
+            <input value="${escapeHtml(home.cta.title)}" onchange="siteData.home.cta.title=this.value">
+            <label>Description</label>
+            <textarea onchange="siteData.home.cta.description=this.value">${escapeHtml(home.cta.description)}</textarea>
+            <label>Button Text</label>
+            <input value="${escapeHtml(home.cta.button.text)}" onchange="siteData.home.cta.button.text=this.value">
+            <label>Button Link</label>
+            <input value="${escapeHtml(home.cta.button.link)}" onchange="siteData.home.cta.button.link=this.value">
+        </div>
+    `;
+    renderHeroBtns();
+    renderNews();
+}
+
+function renderHeroBtns() {
+    const el = document.getElementById('hero-cta-editor');
+    if(!el) return;
+    el.innerHTML = '';
+    (siteData.home.hero.cta || []).forEach((btn, i) => {
+        el.insertAdjacentHTML('beforeend', `
+            <div class="admin-card">
+                <div class="form-grid">
+                    <input value="${escapeHtml(btn.text)}" onchange="siteData.home.hero.cta[${i}].text=this.value" placeholder="Button Text">
+                    <input value="${escapeHtml(btn.link)}" onchange="siteData.home.hero.cta[${i}].link=this.value" placeholder="Link">
+                    <input value="${escapeHtml(btn.style)}" onchange="siteData.home.hero.cta[${i}].style=this.value" placeholder="CSS Class (e.g., btn-primary)">
+                </div>
+                <button class="btn-danger delete-btn" onclick="siteData.home.hero.cta.splice(${i},1); renderHeroBtns()">X</button>
+            </div>
+        `);
+    });
+}
+function addHeroButton() { siteData.home.hero.cta.push({text:"New Button", link:"#", style:"btn-light"}); renderHeroBtns(); }
+
+function renderNews() {
+    const el = document.getElementById('news-editor');
+    if(!el) return;
+    el.innerHTML = '';
+    (siteData.home.news || []).forEach((item, i) => {
+        el.insertAdjacentHTML('beforeend', `
+            <div class="admin-card">
+                <div class="form-grid">
+                    <div class="full-width"><label>Title</label><input value="${escapeHtml(item.title)}" onchange="siteData.home.news[${i}].title=this.value"></div>
+                    <div><label>Date</label><input value="${escapeHtml(item.date)}" onchange="siteData.home.news[${i}].date=this.value"></div>
+                    <div><label>Category</label><input value="${escapeHtml(item.category)}" onchange="siteData.home.news[${i}].category=this.value"></div>
+                    <div class="full-width"><label>Image URL</label><input value="${escapeHtml(item.image)}" onchange="siteData.home.news[${i}].image=this.value"></div>
+                    <div class="full-width"><label>Excerpt</label><textarea onchange="siteData.home.news[${i}].excerpt=this.value">${escapeHtml(item.excerpt)}</textarea></div>
+                </div>
+                <button class="btn-danger delete-btn" onclick="siteData.home.news.splice(${i},1); renderNews()">X</button>
+            </div>
+        `);
+    });
+}
+function addNewsItem() { siteData.home.news.push({title:"New News", date:"Jan 1, 2026", category:"Update", excerpt:"Details...", image:""}); renderNews(); }
+
+// --- About Page ---
+function renderAboutEditor() {
+    const el = document.getElementById('about-editor');
+    if(!el) return;
+    el.innerHTML = `
+        <div class="admin-card">
+            <h3>Overview</h3>
+            <input value="${escapeHtml(siteData.about.overview.title)}" onchange="siteData.about.overview.title=this.value">
+            <textarea onchange="siteData.about.overview.content=this.value">${escapeHtml(siteData.about.overview.content)}</textarea>
+        </div>
+        <div class="form-grid">
+            <div class="admin-card">
+                <h3>Mission</h3>
+                <input value="${escapeHtml(siteData.about.mission.title)}" onchange="siteData.about.mission.title=this.value">
+                <textarea onchange="siteData.about.mission.content=this.value">${escapeHtml(siteData.about.mission.content)}</textarea>
+            </div>
+            <div class="admin-card">
+                <h3>Vision</h3>
+                <input value="${escapeHtml(siteData.about.vision.title)}" onchange="siteData.about.vision.title=this.value">
+                <textarea onchange="siteData.about.vision.content=this.value">${escapeHtml(siteData.about.vision.content)}</textarea>
+            </div>
+        </div>
+    `;
+    renderValues();
+}
+
+function renderValues() {
+    const el = document.getElementById('values-editor');
+    if(!el) return;
+    el.innerHTML = '';
+    (siteData.about.values || []).forEach((val, i) => {
+        el.insertAdjacentHTML('beforeend', `
+            <div class="admin-card">
+                <div class="form-grid">
+                    <div><input value="${escapeHtml(val.title)}" onchange="siteData.about.values[${i}].title=this.value" placeholder="Title"></div>
+                    <div><input value="${escapeHtml(val.icon)}" onchange="siteData.about.values[${i}].icon=this.value" placeholder="Icon"></div>
+                    <div class="full-width"><textarea onchange="siteData.about.values[${i}].description=this.value">${escapeHtml(val.description)}</textarea></div>
+                </div>
+                <button class="btn-danger delete-btn" onclick="siteData.about.values.splice(${i},1); renderValues()">X</button>
+            </div>
+        `);
+    });
+}
+function addValue() { siteData.about.values.push({title:"Core Value", icon:"⭐", description:"Description"}); renderValues(); }
+
+// --- Organization ---
+function renderOrganizationEditor() {
+    if(!siteData.about.organization) siteData.about.organization = { ceo:[], executive:[], tech:[] };
+    const org = siteData.about.organization;
+
+    const renderMembers = (list, containerId, listName) => {
+        const container = document.getElementById(containerId);
+        if(!container) return;
+        container.innerHTML = '';
+        list.forEach((m, i) => {
+            container.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <div class="form-grid">
+                        <input value="${escapeHtml(m.name)}" onchange="siteData.about.organization['${listName}'][${i}].name=this.value" placeholder="Name">
+                        <input value="${escapeHtml(m.title)}" onchange="siteData.about.organization['${listName}'][${i}].title=this.value" placeholder="Title">
+                        <input value="${escapeHtml(m.photo)}" onchange="siteData.about.organization['${listName}'][${i}].photo=this.value" placeholder="Photo URL">
+                        ${m.department !== undefined ? `<input value="${escapeHtml(m.department)}" onchange="siteData.about.organization['${listName}'][${i}].department=this.value" placeholder="Department">` : ''}
+                    </div>
+                    <button class="btn-danger delete-btn" onclick="siteData.about.organization['${listName}'].splice(${i},1); renderOrganizationEditor()">X</button>
+                </div>
+            `);
         });
-    });
-}
-
-// Search Functionality
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
-
-if (searchBtn && searchInput) {
-    const performSearch = () => {
-        const query = searchInput.value.trim().toLowerCase();
-        if (query) {
-            // Store search query
-            sessionStorage.setItem('searchQuery', query);
-            
-            // Get current page
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            
-            // Search in current page content
-            const searchableElements = document.querySelectorAll('h1, h2, h3, h4, p, .service-card, .project-card, .news-card');
-            let found = false;
-            
-            searchableElements.forEach(element => {
-                if (element.textContent.toLowerCase().includes(query)) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    element.style.backgroundColor = '#fef3c7';
-                    setTimeout(() => {
-                        element.style.transition = 'background-color 1s ease';
-                        element.style.backgroundColor = '';
-                    }, 2000);
-                    found = true;
-                    return;
-                }
-            });
-            
-            if (!found) {
-                alert(`No results found for "${query}" on this page. Try searching on other pages.`);
-            }
-        }
     };
 
-    searchBtn.addEventListener('click', performSearch);
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            performSearch();
-        }
-    });
+    renderMembers(org.ceo, 'org-ceo-editor', 'ceo');
+    renderMembers(org.executive, 'org-exec-editor', 'executive');
+    renderMembers(org.tech, 'org-tech-editor', 'tech');
 }
 
-// Sticky Navigation
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
+function addOrgMember(type) {
+    const member = { name: "Name", title: "Title", photo: "assets/images/logo.png" };
+    if(type !== 'tech') member.department = "Management";
+    siteData.about.organization[type].push(member);
+    renderOrganizationEditor();
+}
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+// --- R&D ---
+function renderRndEditor() {
+    if(!siteData.rnd) siteData.rnd = { intro:{}, focus:[], projects:[], cta:{} };
+    const rnd = siteData.rnd;
 
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+    const introEl = document.getElementById('rnd-intro-editor');
+    if(introEl) {
+        introEl.innerHTML = `
+            <div class="admin-card">
+                <h3>Intro</h3>
+                <input value="${escapeHtml(rnd.intro.title)}" onchange="siteData.rnd.intro.title=this.value" placeholder="Title">
+                <textarea onchange="siteData.rnd.intro.content=this.value">${escapeHtml(rnd.intro.content)}</textarea>
+            </div>
+            <div class="admin-card">
+                <h3>Bottom CTA</h3>
+                <input value="${escapeHtml(rnd.cta.title)}" onchange="siteData.rnd.cta.title=this.value" placeholder="CTA Title">
+                <textarea onchange="siteData.rnd.cta.description=this.value">${escapeHtml(rnd.cta.description)}</textarea>
+                <input value="${escapeHtml(rnd.cta.button && rnd.cta.button.text)}" onchange="siteData.rnd.cta.button.text=this.value" placeholder="Button Text">
+            </div>
+        `;
     }
 
-    lastScroll = currentScroll;
-});
-
-// Project Filtering
-const filterButtons = document.querySelectorAll('.filter-btn');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Update active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // Get filter value
-        const filter = button.getAttribute('data-filter');
-
-        // Re-render projects with filter
-        if (typeof CMS !== 'undefined' && CMS.renderAllProjects) {
-            CMS.renderAllProjects(filter);
-        }
-    });
-});
-
-// Contact Form Handling
-const contactForm = document.getElementById('contact-form');
-const formMessage = document.getElementById('form-message');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-
-        // Simulate form submission (in production, send to backend)
-        try {
-            // Show loading state
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1500));
-
-            // Log form data (in production, this would be sent to server)
-            console.log('Form submitted:', formData);
-
-            // Show success message
-            formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-            formMessage.className = 'form-message success';
-
-            // Reset form
-            contactForm.reset();
-
-            // Reset button
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-
-        } catch (error) {
-            // Show error message
-            formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
-            formMessage.className = 'form-message error';
-
-            // Reset button
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            submitButton.textContent = 'Send Message';
-            submitButton.disabled = false;
-        }
-    });
-}
-
-// Smooth Scroll for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Intersection Observer for Fade-in Animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements when they're added to the page
-const observeElements = () => {
-    const elementsToObserve = document.querySelectorAll('.service-card, .project-card, .value-card, .mv-card');
-    elementsToObserve.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
-    });
-};
-
-// Run observer after a short delay to ensure CMS content is loaded
-setTimeout(observeElements, 500);
-
-// Re-run observer when content changes (for filtered projects)
-const observeProjectChanges = () => {
-    const projectsGrid = document.getElementById('projects-full-grid');
-    if (projectsGrid) {
-        const projectObserver = new MutationObserver(() => {
-            observeElements();
+    const focusEl = document.getElementById('rnd-focus-editor');
+    if(focusEl) {
+        focusEl.innerHTML = '';
+        rnd.focus.forEach((f, i) => {
+            focusEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <input value="${escapeHtml(f.title)}" onchange="siteData.rnd.focus[${i}].title=this.value" placeholder="Area Title">
+                    <input value="${escapeHtml(f.icon)}" onchange="siteData.rnd.focus[${i}].icon=this.value" placeholder="Icon">
+                    <textarea onchange="siteData.rnd.focus[${i}].description=this.value">${escapeHtml(f.description)}</textarea>
+                    <button class="btn-danger delete-btn" onclick="siteData.rnd.focus.splice(${i},1); renderRndEditor()">X</button>
+                </div>
+            `);
         });
-        projectObserver.observe(projectsGrid, { childList: true });
     }
-};
 
-setTimeout(observeProjectChanges, 1000);
+    const projEl = document.getElementById('rnd-projects-editor');
+    if(projEl) {
+        projEl.innerHTML = '';
+        rnd.projects.forEach((p, i) => {
+            projEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <input value="${escapeHtml(p.name)}" onchange="siteData.rnd.projects[${i}].name=this.value" placeholder="Project Name">
+                    <input value="${escapeHtml(p.status)}" onchange="siteData.rnd.projects[${i}].status=this.value" placeholder="Status">
+                    <textarea onchange="siteData.rnd.projects[${i}].description=this.value">${escapeHtml(p.description)}</textarea>
+                    <button class="btn-danger delete-btn" onclick="siteData.rnd.projects.splice(${i},1); renderRndEditor()">X</button>
+                </div>
+            `);
+        });
+    }
+}
+function addRndFocus() { siteData.rnd.focus.push({title:"New Area", icon:"🔬", description:"Description"}); renderRndEditor(); }
+function addRndProject() { siteData.rnd.projects.push({name:"Experiment X", status:"Prototype", description:"Description"}); renderRndEditor(); }
 
-// Form Validation
-const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-};
+// --- Products Page ---
+function renderProductPageEditor() {
+    const el = document.getElementById('product-page-editor');
+    if(!el) return;
+    el.innerHTML = '';
+    (productPageData.products || []).forEach((p, i) => {
+        el.insertAdjacentHTML('beforeend', `
+            <div class="admin-card">
+                <div class="form-grid">
+                    <div><label>ID (Anchor)</label><input value="${escapeHtml(p.id)}" onchange="productPageData.products[${i}].id=this.value"></div>
+                    <div class="full-width"><label>Title</label><input value="${escapeHtml(p.title)}" onchange="productPageData.products[${i}].title=this.value"></div>
+                    <div class="full-width"><label>Image URL</label><input value="${escapeHtml(p.image)}" onchange="productPageData.products[${i}].image=this.value"></div>
+                    <div class="full-width"><label>Description</label><textarea onchange="productPageData.products[${i}].description=this.value">${escapeHtml(p.description)}</textarea></div>
+                </div>
+                <button class="btn-danger delete-btn" onclick="productPageData.products.splice(${i},1); renderProductPageEditor()">X</button>
+            </div>
+        `);
+    });
+}
+function addProductItem() {
+    if (!productPageData.products) productPageData.products = [];
+    productPageData.products.push({id: "new-id", title: "New Product", description: "Description", image: ""});
+    renderProductPageEditor();
+}
+function saveProductPage() { downloadJSON(productPageData, 'products.json'); }
 
-if (contactForm) {
-    const emailInput = document.getElementById('email');
+
+// =======================================================
+// 2. OTHER JSON EDITORS
+// =======================================================
+
+function renderServicesEditor() {
+    const el = document.getElementById('services-editor');
+    if(!el) return;
+    el.innerHTML = '';
+    (servicesData.services || []).forEach((s, i) => {
+        el.insertAdjacentHTML('beforeend', `
+            <div class="admin-card">
+                <div class="form-grid">
+                    <input value="${escapeHtml(s.title)}" onchange="servicesData.services[${i}].title=this.value" placeholder="Service Title">
+                    <input value="${escapeHtml(s.icon)}" onchange="servicesData.services[${i}].icon=this.value" placeholder="Icon">
+                </div>
+                <textarea onchange="servicesData.services[${i}].description=this.value">${escapeHtml(s.description)}</textarea>
+                <button class="btn-danger delete-btn" onclick="servicesData.services.splice(${i},1); renderServicesEditor()">X</button>
+            </div>
+        `);
+    });
+}
+function addService() { servicesData.services.push({title:"New Service", icon:"⚡", description:"Description"}); renderServicesEditor(); }
+
+function renderProjectsEditor() {
+    const el = document.getElementById('projects-editor');
+    if(!el) return;
+    el.innerHTML = '';
+    (projectsData.projects || []).forEach((p, i) => {
+        el.insertAdjacentHTML('beforeend', `
+            <div class="admin-card">
+                <div class="form-grid">
+                    <div class="full-width"><input value="${escapeHtml(p.name)}" onchange="projectsData.projects[${i}].name=this.value" placeholder="Project Name"></div>
+                    <div>
+                        <select onchange="projectsData.projects[${i}].status=this.value">
+                            <option value="Completed" ${p.status==='Completed'?'selected':''}>Completed</option>
+                            <option value="Ongoing" ${p.status==='Ongoing'?'selected':''}>Ongoing</option>
+                        </select>
+                    </div>
+                    <div><input value="${escapeHtml(p.image)}" onchange="projectsData.projects[${i}].image=this.value" placeholder="Image URL"></div>
+                </div>
+                <textarea onchange="projectsData.projects[${i}].description=this.value">${escapeHtml(p.description)}</textarea>
+                <button class="btn-danger delete-btn" onclick="projectsData.projects.splice(${i},1); renderProjectsEditor()">X</button>
+            </div>
+        `);
+    });
+}
+function addProject() { projectsData.projects.push({name:"Project", status:"Ongoing", description:"Desc", image:"", technologies:[]}); renderProjectsEditor(); }
+
+function renderCareerEditors() {
+    if(!careerData.intro) careerData.intro = {};
+    const titleEl = document.getElementById('career-intro-title');
+    const descEl = document.getElementById('career-intro-desc');
     
-    emailInput.addEventListener('blur', () => {
-        if (emailInput.value && !validateEmail(emailInput.value)) {
-            emailInput.style.borderColor = '#dc2626';
-        } else {
-            emailInput.style.borderColor = '';
-        }
-    });
+    if(titleEl) {
+        titleEl.value = careerData.intro.title || '';
+        titleEl.onchange = (e) => careerData.intro.title = e.target.value;
+    }
+    if(descEl) {
+        descEl.value = careerData.intro.description || '';
+        descEl.onchange = (e) => careerData.intro.description = e.target.value;
+    }
+
+    const benEl = document.getElementById('benefits-editor');
+    if(benEl) {
+        benEl.innerHTML = '';
+        (careerData.benefits || []).forEach((b, i) => {
+            benEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <input value="${escapeHtml(b.title)}" onchange="careerData.benefits[${i}].title=this.value">
+                    <button class="btn-danger delete-btn" onclick="careerData.benefits.splice(${i},1); renderCareerEditors()">X</button>
+                </div>
+            `);
+        });
+    }
+
+    const posEl = document.getElementById('positions-editor');
+    if(posEl) {
+        posEl.innerHTML = '';
+        (careerData.positions || []).forEach((p, i) => {
+            posEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <div class="form-grid">
+                        <input value="${escapeHtml(p.title)}" onchange="careerData.positions[${i}].title=this.value" placeholder="Job Title">
+                        <input value="${escapeHtml(p.location)}" onchange="careerData.positions[${i}].location=this.value" placeholder="Location">
+                    </div>
+                    <button class="btn-danger delete-btn" onclick="careerData.positions.splice(${i},1); renderCareerEditors()">X</button>
+                </div>
+            `);
+        });
+    }
 }
+function addBenefit() { careerData.benefits.push({title:"Benefit", description:"Desc", icon:"+"}); renderCareerEditors(); }
+function addPosition() { careerData.positions.push({title:"Job", location:"Remote", description:"Desc", requirements:[]}); renderCareerEditors(); }
 
-// Add active class to current page in navigation
-const setActiveNavLink = () => {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
-};
+function renderContactPageEditors() {
+    const el = document.getElementById('main-contact-editor');
+    if(el) {
+        const c = contactData.contact || {};
+        el.innerHTML = `
+            <div class="form-grid">
+                <input value="${escapeHtml(c.email)}" onchange="contactData.contact.email=this.value" placeholder="Email">
+                <input value="${escapeHtml(c.phone)}" onchange="contactData.contact.phone=this.value" placeholder="Phone">
+                <div class="full-width"><input value="${escapeHtml(c.address)}" onchange="contactData.contact.address=this.value" placeholder="Address"></div>
+                <div class="full-width"><input value="${escapeHtml(c.hours)}" onchange="contactData.contact.hours=this.value" placeholder="Hours"></div>
+            </div>
+        `;
+    }
 
-// Set active nav link on page load
-setActiveNavLink();
-
-// Back to Top functionality (optional enhancement)
-const createBackToTop = () => {
-    const button = document.createElement('button');
-    button.innerHTML = '↑';
-    button.className = 'back-to-top';
-    button.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.5rem;
-        display: none;
-        z-index: 999;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-    `;
-
-    button.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    button.addEventListener('mouseenter', () => {
-        button.style.transform = 'translateY(-5px)';
-    });
-
-    button.addEventListener('mouseleave', () => {
-        button.style.transform = 'translateY(0)';
-    });
-
-    document.body.appendChild(button);
-
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            button.style.display = 'block';
-        } else {
-            button.style.display = 'none';
-        }
-    });
-};
-
-// Initialize back to top button
-createBackToTop();
-
-// Console message for developers
-console.log('%c🚀 DAL-sh Software House', 'font-size: 20px; font-weight: bold; color: #2563eb;');
-console.log('%cWebsite built with HTML, CSS, and Vanilla JavaScript', 'font-size: 12px; color: #64748b;');
-console.log('%cContent managed via JSON files - Edit data/ folder to update content', 'font-size: 12px; color: #10b981;');
-
-/*
-const langButtons = document.querySelectorAll('.lang-toggle button');
-
-async function setLanguage(lang) {
-    const res = await fetch('data/lang.json');
-    const data = await res.json();
-
-    localStorage.setItem('lang', lang);
-
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (data[lang][key]) el.textContent = data[lang][key];
-    });
-
-    langButtons.forEach(b => b.classList.remove('active'));
-    document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+    const branchEl = document.getElementById('branches-editor');
+    if(branchEl) {
+        branchEl.innerHTML = '';
+        (contactData.branches || []).forEach((b, i) => {
+            branchEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <div class="form-grid">
+                        <input value="${escapeHtml(b.city)}" onchange="contactData.branches[${i}].city=this.value" placeholder="City">
+                        <input value="${escapeHtml(b.type)}" onchange="contactData.branches[${i}].type=this.value" placeholder="Type">
+                    </div>
+                    <textarea onchange="contactData.branches[${i}].address=this.value">${escapeHtml(b.address)}</textarea>
+                    <button class="btn-danger delete-btn" onclick="contactData.branches.splice(${i},1); renderContactPageEditors()">X</button>
+                </div>
+            `);
+        });
+    }
 }
+function addBranch() { contactData.branches.push({city:"City", type:"Office", address:"Address", email:"", phone:""}); renderContactPageEditors(); }
 
-langButtons.forEach(btn => {
-    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-});
-
-setLanguage(localStorage.getItem('lang') || 'en');
-
-let translations = {};
-let currentLang = localStorage.getItem("lang") || "en";
-
-async function loadLanguage(lang) {
-    const res = await fetch("data/lang.json");
-    translations = await res.json();
-    applyLanguage(lang);
-}
-
-function applyLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem("lang", lang);
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang] && translations[lang][key]) {
-            el.textContent = translations[lang][key];
-        }
-    });
-}
-
-// Language buttons
-document.querySelectorAll(".lang-toggle button").forEach(btn => {
-    btn.addEventListener("click", () => {
-        loadLanguage(btn.dataset.lang);
-    });
-});
+// --- Save Functions ---
+function saveSiteData() { downloadJSON(siteData, 'site.json'); }
+function saveServices() { downloadJSON(servicesData, 'services.json'); }
+function saveProjects() { downloadJSON(projectsData, 'projects.json'); }
+function saveCareer() { downloadJSON(careerData, 'career.json'); }
+function saveContact() { downloadJSON(contactData, 'contact.json'); }
 
 // Init
-loadLanguage(currentLang);
-*/
-
-// js/main.js - Add this to the bottom
-
-function checkUserLogin() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const role = localStorage.getItem('userRole'); // 'admin' or 'user'
-    const name = localStorage.getItem('userName');
-    
-    const navMenu = document.getElementById('navMenu');
-    
-    // Remove existing Login/Logout buttons to prevent duplicates
-    const existingBtn = document.getElementById('nav-auth-btn');
-    if(existingBtn) existingBtn.remove();
-    const existingAdminBtn = document.getElementById('nav-admin-link');
-    if(existingAdminBtn) existingAdminBtn.remove();
-
-    if (isLoggedIn && navMenu) {
-        // 1. If Developer/Admin, add link to Admin Panel
-        if (role === 'admin') {
-            const adminLi = document.createElement('li');
-            adminLi.id = 'nav-admin-link';
-            adminLi.innerHTML = `<a href="admin.html" style="color: red; font-weight: bold;">Admin Panel</a>`;
-            navMenu.appendChild(adminLi);
-        }
-
-        // 2. Add Logout Button
-        const li = document.createElement('li');
-        li.id = 'nav-auth-btn';
-        li.innerHTML = `<a href="#" onclick="logout()" style="color: var(--primary-color); font-weight: bold;">Logout (${name})</a>`;
-        navMenu.appendChild(li);
-
-    } else if (navMenu) {
-        // 3. If NOT logged in, show Login Button
-        const li = document.createElement('li');
-        li.id = 'nav-auth-btn';
-        li.innerHTML = `<a href="login.html">Login</a>`;
-        navMenu.appendChild(li);
-    }
-}
-
-// Execute check on load
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof checkUserLogin === 'function') {
-        checkUserLogin();
-    }
-});
+loadAdminData();

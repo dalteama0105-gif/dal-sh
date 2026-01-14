@@ -22,12 +22,15 @@ async function fetchJSON(path) {
 }
 
 async function loadAdminData() {
+    // Fetch all data
     siteData = await fetchJSON('data/site.json');
     servicesData = await fetchJSON('data/services.json');
     projectsData = await fetchJSON('data/projects.json');
     careerData = await fetchJSON('data/career.json');
     contactData = await fetchJSON('data/contact.json');
+    productPageData = await fetchJSON('data/products.json');
 
+    // Render all editors
     renderGlobalEditor();
     renderHomeEditor();
     renderAboutEditor();
@@ -37,6 +40,7 @@ async function loadAdminData() {
     renderProjectsEditor();
     renderCareerEditors();
     renderContactPageEditors();
+    renderProductPageEditor();
 }
 
 // --- Utilities ---
@@ -60,6 +64,7 @@ function downloadJSON(data, filename) {
 // --- Global & Footer ---
 function renderGlobalEditor() {
     const el = document.getElementById('global-editor');
+    if(!el) return;
     if(!siteData.company) siteData.company = {};
     if(!siteData.footer) siteData.footer = { contact: {} };
 
@@ -100,6 +105,7 @@ function renderGlobalEditor() {
 // --- Home Page ---
 function renderHomeEditor() {
     const el = document.getElementById('home-editor');
+    if(!el) return;
     const home = siteData.home || {};
     
     el.innerHTML = `
@@ -135,6 +141,7 @@ function renderHomeEditor() {
 
 function renderHeroBtns() {
     const el = document.getElementById('hero-cta-editor');
+    if(!el) return;
     el.innerHTML = '';
     (siteData.home.hero.cta || []).forEach((btn, i) => {
         el.insertAdjacentHTML('beforeend', `
@@ -153,6 +160,7 @@ function addHeroButton() { siteData.home.hero.cta.push({text:"New Button", link:
 
 function renderNews() {
     const el = document.getElementById('news-editor');
+    if(!el) return;
     el.innerHTML = '';
     (siteData.home.news || []).forEach((item, i) => {
         el.insertAdjacentHTML('beforeend', `
@@ -174,6 +182,7 @@ function addNewsItem() { siteData.home.news.push({title:"New News", date:"Jan 1,
 // --- About Page ---
 function renderAboutEditor() {
     const el = document.getElementById('about-editor');
+    if(!el) return;
     el.innerHTML = `
         <div class="admin-card">
             <h3>Overview</h3>
@@ -198,6 +207,7 @@ function renderAboutEditor() {
 
 function renderValues() {
     const el = document.getElementById('values-editor');
+    if(!el) return;
     el.innerHTML = '';
     (siteData.about.values || []).forEach((val, i) => {
         el.insertAdjacentHTML('beforeend', `
@@ -219,9 +229,9 @@ function renderOrganizationEditor() {
     if(!siteData.about.organization) siteData.about.organization = { ceo:[], executive:[], tech:[] };
     const org = siteData.about.organization;
 
-    // Helper to render a list of members
     const renderMembers = (list, containerId, listName) => {
         const container = document.getElementById(containerId);
+        if(!container) return;
         container.innerHTML = '';
         list.forEach((m, i) => {
             container.insertAdjacentHTML('beforeend', `
@@ -255,64 +265,60 @@ function renderRndEditor() {
     if(!siteData.rnd) siteData.rnd = { intro:{}, focus:[], projects:[], cta:{} };
     const rnd = siteData.rnd;
 
-    document.getElementById('rnd-intro-editor').innerHTML = `
-        <div class="admin-card">
-            <h3>Intro</h3>
-            <input value="${escapeHtml(rnd.intro.title)}" onchange="siteData.rnd.intro.title=this.value" placeholder="Title">
-            <textarea onchange="siteData.rnd.intro.content=this.value">${escapeHtml(rnd.intro.content)}</textarea>
-        </div>
-        <div class="admin-card">
-            <h3>Bottom CTA</h3>
-            <input value="${escapeHtml(rnd.cta.title)}" onchange="siteData.rnd.cta.title=this.value" placeholder="CTA Title">
-            <textarea onchange="siteData.rnd.cta.description=this.value">${escapeHtml(rnd.cta.description)}</textarea>
-            <input value="${escapeHtml(rnd.cta.button && rnd.cta.button.text)}" onchange="siteData.rnd.cta.button.text=this.value" placeholder="Button Text">
-        </div>
-    `;
+    const introEl = document.getElementById('rnd-intro-editor');
+    if(introEl) {
+        introEl.innerHTML = `
+            <div class="admin-card">
+                <h3>Intro</h3>
+                <input value="${escapeHtml(rnd.intro.title)}" onchange="siteData.rnd.intro.title=this.value" placeholder="Title">
+                <textarea onchange="siteData.rnd.intro.content=this.value">${escapeHtml(rnd.intro.content)}</textarea>
+            </div>
+            <div class="admin-card">
+                <h3>Bottom CTA</h3>
+                <input value="${escapeHtml(rnd.cta.title)}" onchange="siteData.rnd.cta.title=this.value" placeholder="CTA Title">
+                <textarea onchange="siteData.rnd.cta.description=this.value">${escapeHtml(rnd.cta.description)}</textarea>
+                <input value="${escapeHtml(rnd.cta.button && rnd.cta.button.text)}" onchange="siteData.rnd.cta.button.text=this.value" placeholder="Button Text">
+            </div>
+        `;
+    }
 
-    // Focus Areas
     const focusEl = document.getElementById('rnd-focus-editor');
-    focusEl.innerHTML = '';
-    rnd.focus.forEach((f, i) => {
-        focusEl.insertAdjacentHTML('beforeend', `
-            <div class="admin-card">
-                <input value="${escapeHtml(f.title)}" onchange="siteData.rnd.focus[${i}].title=this.value" placeholder="Area Title">
-                <input value="${escapeHtml(f.icon)}" onchange="siteData.rnd.focus[${i}].icon=this.value" placeholder="Icon">
-                <textarea onchange="siteData.rnd.focus[${i}].description=this.value">${escapeHtml(f.description)}</textarea>
-                <button class="btn-danger delete-btn" onclick="siteData.rnd.focus.splice(${i},1); renderRndEditor()">X</button>
-            </div>
-        `);
-    });
+    if(focusEl) {
+        focusEl.innerHTML = '';
+        rnd.focus.forEach((f, i) => {
+            focusEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <input value="${escapeHtml(f.title)}" onchange="siteData.rnd.focus[${i}].title=this.value" placeholder="Area Title">
+                    <input value="${escapeHtml(f.icon)}" onchange="siteData.rnd.focus[${i}].icon=this.value" placeholder="Icon">
+                    <textarea onchange="siteData.rnd.focus[${i}].description=this.value">${escapeHtml(f.description)}</textarea>
+                    <button class="btn-danger delete-btn" onclick="siteData.rnd.focus.splice(${i},1); renderRndEditor()">X</button>
+                </div>
+            `);
+        });
+    }
 
-    // R&D Projects
     const projEl = document.getElementById('rnd-projects-editor');
-    projEl.innerHTML = '';
-    rnd.projects.forEach((p, i) => {
-        projEl.insertAdjacentHTML('beforeend', `
-            <div class="admin-card">
-                <input value="${escapeHtml(p.name)}" onchange="siteData.rnd.projects[${i}].name=this.value" placeholder="Project Name">
-                <input value="${escapeHtml(p.status)}" onchange="siteData.rnd.projects[${i}].status=this.value" placeholder="Status">
-                <textarea onchange="siteData.rnd.projects[${i}].description=this.value">${escapeHtml(p.description)}</textarea>
-                <button class="btn-danger delete-btn" onclick="siteData.rnd.projects.splice(${i},1); renderRndEditor()">X</button>
-            </div>
-        `);
-    });
+    if(projEl) {
+        projEl.innerHTML = '';
+        rnd.projects.forEach((p, i) => {
+            projEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <input value="${escapeHtml(p.name)}" onchange="siteData.rnd.projects[${i}].name=this.value" placeholder="Project Name">
+                    <input value="${escapeHtml(p.status)}" onchange="siteData.rnd.projects[${i}].status=this.value" placeholder="Status">
+                    <textarea onchange="siteData.rnd.projects[${i}].description=this.value">${escapeHtml(p.description)}</textarea>
+                    <button class="btn-danger delete-btn" onclick="siteData.rnd.projects.splice(${i},1); renderRndEditor()">X</button>
+                </div>
+            `);
+        });
+    }
 }
 function addRndFocus() { siteData.rnd.focus.push({title:"New Area", icon:"ðŸ”¬", description:"Description"}); renderRndEditor(); }
 function addRndProject() { siteData.rnd.projects.push({name:"Experiment X", status:"Prototype", description:"Description"}); renderRndEditor(); }
 
-
-// 2. Update loadAdminData() to fetch the new JSON
-async function loadAdminData() {
-    // ... existing fetches ...
-    productPageData = await fetchJSON('data/products.json'); // Add this line
-    
-    // ... existing renders ...
-    renderProductPageEditor(); // Add this line
-}
-
-// 3. Add these new functions to js/admin.js
+// --- Products Page ---
 function renderProductPageEditor() {
     const el = document.getElementById('product-page-editor');
+    if(!el) return;
     el.innerHTML = '';
     (productPageData.products || []).forEach((p, i) => {
         el.insertAdjacentHTML('beforeend', `
@@ -328,22 +334,21 @@ function renderProductPageEditor() {
         `);
     });
 }
-
 function addProductItem() {
     if (!productPageData.products) productPageData.products = [];
     productPageData.products.push({id: "new-id", title: "New Product", description: "Description", image: ""});
     renderProductPageEditor();
 }
+function saveProductPage() { downloadJSON(productPageData, 'products.json'); }
 
-function saveProductPage() {
-    downloadJSON(productPageData, 'products.json');
-}
+
 // =======================================================
 // 2. OTHER JSON EDITORS
 // =======================================================
 
 function renderServicesEditor() {
     const el = document.getElementById('services-editor');
+    if(!el) return;
     el.innerHTML = '';
     (servicesData.services || []).forEach((s, i) => {
         el.insertAdjacentHTML('beforeend', `
@@ -362,6 +367,7 @@ function addService() { servicesData.services.push({title:"New Service", icon:"â
 
 function renderProjectsEditor() {
     const el = document.getElementById('projects-editor');
+    if(!el) return;
     el.innerHTML = '';
     (projectsData.projects || []).forEach((p, i) => {
         el.insertAdjacentHTML('beforeend', `
@@ -385,66 +391,81 @@ function renderProjectsEditor() {
 function addProject() { projectsData.projects.push({name:"Project", status:"Ongoing", description:"Desc", image:"", technologies:[]}); renderProjectsEditor(); }
 
 function renderCareerEditors() {
-    document.getElementById('career-intro-title').value = careerData.intro?.title || '';
-    document.getElementById('career-intro-title').onchange = (e) => careerData.intro.title = e.target.value;
+    if(!careerData.intro) careerData.intro = {};
+    const titleEl = document.getElementById('career-intro-title');
+    const descEl = document.getElementById('career-intro-desc');
     
-    document.getElementById('career-intro-desc').value = careerData.intro?.description || '';
-    document.getElementById('career-intro-desc').onchange = (e) => careerData.intro.description = e.target.value;
+    if(titleEl) {
+        titleEl.value = careerData.intro.title || '';
+        titleEl.onchange = (e) => careerData.intro.title = e.target.value;
+    }
+    if(descEl) {
+        descEl.value = careerData.intro.description || '';
+        descEl.onchange = (e) => careerData.intro.description = e.target.value;
+    }
 
     const benEl = document.getElementById('benefits-editor');
-    benEl.innerHTML = '';
-    (careerData.benefits || []).forEach((b, i) => {
-        benEl.insertAdjacentHTML('beforeend', `
-            <div class="admin-card">
-                <input value="${escapeHtml(b.title)}" onchange="careerData.benefits[${i}].title=this.value">
-                <button class="btn-danger delete-btn" onclick="careerData.benefits.splice(${i},1); renderCareerEditors()">X</button>
-            </div>
-        `);
-    });
+    if(benEl) {
+        benEl.innerHTML = '';
+        (careerData.benefits || []).forEach((b, i) => {
+            benEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <input value="${escapeHtml(b.title)}" onchange="careerData.benefits[${i}].title=this.value">
+                    <button class="btn-danger delete-btn" onclick="careerData.benefits.splice(${i},1); renderCareerEditors()">X</button>
+                </div>
+            `);
+        });
+    }
 
     const posEl = document.getElementById('positions-editor');
-    posEl.innerHTML = '';
-    (careerData.positions || []).forEach((p, i) => {
-        posEl.insertAdjacentHTML('beforeend', `
-            <div class="admin-card">
-                <div class="form-grid">
-                    <input value="${escapeHtml(p.title)}" onchange="careerData.positions[${i}].title=this.value" placeholder="Job Title">
-                    <input value="${escapeHtml(p.location)}" onchange="careerData.positions[${i}].location=this.value" placeholder="Location">
+    if(posEl) {
+        posEl.innerHTML = '';
+        (careerData.positions || []).forEach((p, i) => {
+            posEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <div class="form-grid">
+                        <input value="${escapeHtml(p.title)}" onchange="careerData.positions[${i}].title=this.value" placeholder="Job Title">
+                        <input value="${escapeHtml(p.location)}" onchange="careerData.positions[${i}].location=this.value" placeholder="Location">
+                    </div>
+                    <button class="btn-danger delete-btn" onclick="careerData.positions.splice(${i},1); renderCareerEditors()">X</button>
                 </div>
-                <button class="btn-danger delete-btn" onclick="careerData.positions.splice(${i},1); renderCareerEditors()">X</button>
-            </div>
-        `);
-    });
+            `);
+        });
+    }
 }
 function addBenefit() { careerData.benefits.push({title:"Benefit", description:"Desc", icon:"+"}); renderCareerEditors(); }
 function addPosition() { careerData.positions.push({title:"Job", location:"Remote", description:"Desc", requirements:[]}); renderCareerEditors(); }
 
 function renderContactPageEditors() {
     const el = document.getElementById('main-contact-editor');
-    const c = contactData.contact;
-    el.innerHTML = `
-        <div class="form-grid">
-            <input value="${escapeHtml(c.email)}" onchange="contactData.contact.email=this.value" placeholder="Email">
-            <input value="${escapeHtml(c.phone)}" onchange="contactData.contact.phone=this.value" placeholder="Phone">
-            <div class="full-width"><input value="${escapeHtml(c.address)}" onchange="contactData.contact.address=this.value" placeholder="Address"></div>
-            <div class="full-width"><input value="${escapeHtml(c.hours)}" onchange="contactData.contact.hours=this.value" placeholder="Hours"></div>
-        </div>
-    `;
+    if(el) {
+        const c = contactData.contact || {};
+        el.innerHTML = `
+            <div class="form-grid">
+                <input value="${escapeHtml(c.email)}" onchange="contactData.contact.email=this.value" placeholder="Email">
+                <input value="${escapeHtml(c.phone)}" onchange="contactData.contact.phone=this.value" placeholder="Phone">
+                <div class="full-width"><input value="${escapeHtml(c.address)}" onchange="contactData.contact.address=this.value" placeholder="Address"></div>
+                <div class="full-width"><input value="${escapeHtml(c.hours)}" onchange="contactData.contact.hours=this.value" placeholder="Hours"></div>
+            </div>
+        `;
+    }
 
     const branchEl = document.getElementById('branches-editor');
-    branchEl.innerHTML = '';
-    (contactData.branches || []).forEach((b, i) => {
-        branchEl.insertAdjacentHTML('beforeend', `
-            <div class="admin-card">
-                <div class="form-grid">
-                    <input value="${escapeHtml(b.city)}" onchange="contactData.branches[${i}].city=this.value" placeholder="City">
-                    <input value="${escapeHtml(b.type)}" onchange="contactData.branches[${i}].type=this.value" placeholder="Type">
+    if(branchEl) {
+        branchEl.innerHTML = '';
+        (contactData.branches || []).forEach((b, i) => {
+            branchEl.insertAdjacentHTML('beforeend', `
+                <div class="admin-card">
+                    <div class="form-grid">
+                        <input value="${escapeHtml(b.city)}" onchange="contactData.branches[${i}].city=this.value" placeholder="City">
+                        <input value="${escapeHtml(b.type)}" onchange="contactData.branches[${i}].type=this.value" placeholder="Type">
+                    </div>
+                    <textarea onchange="contactData.branches[${i}].address=this.value">${escapeHtml(b.address)}</textarea>
+                    <button class="btn-danger delete-btn" onclick="contactData.branches.splice(${i},1); renderContactPageEditors()">X</button>
                 </div>
-                <textarea onchange="contactData.branches[${i}].address=this.value">${escapeHtml(b.address)}</textarea>
-                <button class="btn-danger delete-btn" onclick="contactData.branches.splice(${i},1); renderContactPageEditors()">X</button>
-            </div>
-        `);
-    });
+            `);
+        });
+    }
 }
 function addBranch() { contactData.branches.push({city:"City", type:"Office", address:"Address", email:"", phone:""}); renderContactPageEditors(); }
 

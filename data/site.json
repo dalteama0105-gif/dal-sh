@@ -77,27 +77,27 @@
     ],
     "organization": {
       "ceo": [
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder", "department": "Executive Leadership"}
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
+        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"}
       ],
       "executive": [
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "CEO", "department": "Technology"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "COO", "department": "Operations"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CTO", "department": "Finance"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "VP Engineering", "department": "Engineering"}
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "CEO", "department": "Executive Management"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "COO", "department": "Operations"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CTO", "department": "Technology"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CMO", "department": "Marketing"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CIO", "department": "Information Systems"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CHRO", "department": "Human Resources"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "CSO", "department": "Strategy"}
       ],
       "tech": [
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "Architecture Design"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "Software Developer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "Software Engineer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "Mobile Developer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "AI Developer"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "Security Developer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "DevOps Engineer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "DevOps Engineer"},
         { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "Cloud Engineer"}

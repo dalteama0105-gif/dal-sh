@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | TECH Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Optional: Add some spacing specifically for the scrolling offset */
+        html {
+            scroll-behavior: smooth;
+        }
+        section[id] {
+            scroll-margin-top: 100px; /* Offsets the sticky navbar height */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="TECH Hub Logo" class="logo-img">
+        </a>
+        <button class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="rnd.html">R&D</a></li>
+            <li class="dropdown">
+                <a href="products.html" class="dropbtn active">Product▾</a>
+                <ul class="dropdown-content">
+                    <li><a href="#stt">Speech to text system</a></li>
+                    <li><a href="#kiosk">Kiosk systems information</a></li>
+                    <li><a href="#cms">Web portal cms</a></li>
+                    <li><a href="#complain">Complain system</a></li>
+                </ul>
+            </li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li class="dropdown">
+                <a href="career.html" class="dropbtn">Career▾</a>
+                <ul class="dropdown-content">
+                    <li><a href="career.html#benefits-grid">Benefits</a></li>
+                    <li><a href="career.html#positions-list">Open Positions</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+        <div id="google_translate_element"></div>
+    </div>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Our Products</h1>
+        <p>Explore our suite of innovative software solutions</p>
+    </div>
+</section>
+
+<section id="stt" class="about-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Speech to Text System</h2>
+            <p>Advanced AI-Powered Transcription & Voice Recognition</p>
+        </div>
+        <div class="mv-grid">
+            <div class="mv-card fade-in">
+                <h3>Overview</h3>
+                <p>Our state-of-the-art Speech to Text (STT) system leverages deep learning algorithms to convert spoken language into written text with exceptional accuracy. Designed for businesses requiring automated transcription, voice command integration, and meeting analysis.</p>
+            </div>
+            <div class="mv-card fade-in">
+                <h3>Key Features</h3>
+                <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8; color: var(--text-light);">
+                    <li>Real-time transcription with low latency</li>
+                    <li>Multi-language support (English, Malay, Chinese)</li>
+                    <li>Speaker diarization (identifying different speakers)</li>
+                    <li>Custom vocabulary for industry-specific terms</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="kiosk" class="about-section" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Kiosk Systems Information</h2>
+            <p>Interactive Self-Service & Digital Signage Solutions</p>
+        </div>
+        <div class="mv-grid">
+            <div class="mv-card fade-in" style="background: var(--white);">
+                <h3>Overview</h3>
+                <p>Our smart kiosk solutions provide seamless self-service experiences for retail, government, and corporate environments. From information inquiries to ticketing and wayfinding, our kiosks are built to be robust, secure, and user-friendly.</p>
+            </div>
+            <div class="mv-card fade-in" style="background: var(--white);">
+                <h3>Capabilities</h3>
+                <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8; color: var(--text-light);">
+                    <li>Interactive Touch Interface</li>
+                    <li>Remote Content Management</li>
+                    <li>Hardware Integration (Printers, Scanners)</li>
+                    <li>Secure Payment Processing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="cms" class="about-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Web Portal CMS</h2>
+            <p>Powerful Content Management Systems for Enterprise</p>
+        </div>
+        <div class="mv-grid">
+            <div class="mv-card fade-in">
+                <h3>Overview</h3>
+                <p>Empower your team to manage digital content effortlessly with our Web Portal CMS. Whether you need a corporate intranet, a customer portal, or a public-facing website, our solution offers flexibility, security, and scalability.</p>
+            </div>
+            <div class="mv-card fade-in">
+                <h3>Key Benefits</h3>
+                <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8; color: var(--text-light);">
+                    <li>Drag-and-Drop Page Builder</li>
+                    <li>Role-Based Access Control (RBAC)</li>
+                    <li>Integrated SEO Tools</li>
+                    <li>Workflow Approval Processes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="complain" class="about-section" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Complain Management System</h2>
+            <p>Efficient Customer Feedback & Issue Resolution</p>
+        </div>
+        <div class="mv-grid">
+            <div class="mv-card fade-in" style="background: var(--white);">
+                <h3>Overview</h3>
+                <p>Streamline your customer support with our intelligent Complaint Management System. Track, prioritize, and resolve customer issues efficiently while gaining valuable insights into product performance and user satisfaction.</p>
+            </div>
+            <div class="mv-card fade-in" style="background: var(--white);">
+                <h3>System Features</h3>
+                <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8; color: var(--text-light);">
+                    <li>Automated Ticket Generation</li>
+                    <li>SLA Management & Tracking</li>
+                    <li>Multi-channel Support (Email, Web, Mobile)</li>
+                    <li>Performance Analytics Dashboard</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="cta-center" style="margin-top: 4rem;">
+            <a href="contact.html" class="btn btn-primary">Request a Quote for Our Products</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-sitemap" id="footer-sitemap"></div>
+    </div>
+</footer>
+
+<script src="js/cms.js"></script>
+<script src="js/main.js"></script>
+<script>
+    CMS.renderFooter();
+</script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en', 
+        includedLanguages: 'en,zh-CN,ms', 
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

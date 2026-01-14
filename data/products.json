@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "stt",
+      "title": "Speech to Text System",
+      "description": "Advanced AI transcription engine.",
+      "image": "https://via.placeholder.com/400x250"
+    },
+    {
+      "id": "kiosk",
+      "title": "Kiosk Systems",
+      "description": "Interactive touchpoint information systems.",
+      "image": "https://via.placeholder.com/400x250"
+    },
+    {
+      "id": "cms",
+      "title": "Web Portal CMS",
+      "description": "Custom content management solutions.",
+      "image": "https://via.placeholder.com/400x250"
+    },
+    {
+      "id": "complain",
+      "title": "Complain System",
+      "description": "Ticket-based feedback management.",
+      "image": "https://via.placeholder.com/400x250"
+    }
+  ]
+}

@@ -6,111 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        /* --- Login Page Specific Styles --- */
-        
-        body {
-            /* Create a full-screen gradient background using your brand colors */
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .login-wrapper {
-            width: 100%;
-            max-width: 420px;
-            padding: 20px;
-        }
-
-        .login-box {
-            background: var(--white);
-            padding: 3rem 2.5rem;
-            border-radius: 16px;
-            /* Smooth shadow for depth */
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            text-align: center;
-            /* Subtle entrance animation */
-            animation: fadeInUp 0.5s ease-out;
-        }
-
-        .login-logo {
-            height: 70px; /* Adjusted size */
-            width: auto;
-            margin-bottom: 1.5rem;
-            object-fit: contain;
-        }
-
-        .login-box h2 {
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .login-box p.subtitle {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-
-        /* Input styling matches Admin inputs */
-        .input-group {
-            margin-bottom: 1.25rem;
-            text-align: left;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            outline: none;
-            background-color: #f8fafc;
-        }
-
-        .input-group input:focus {
-            border-color: var(--primary-color);
-            background-color: var(--white);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        /* Full width button */
-        .btn-login {
-            width: 100%;
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-            padding: 0.875rem;
-        }
-
-        #error {
-            margin-top: 1rem;
-            color: #dc2626; /* Red for errors */
-            font-size: 0.9rem;
-            min-height: 1.4em; /* Prevents jump when error appears */
-        }
-
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
 </head>
-<body>
+
+<body class="login-body">
 
     <div class="login-wrapper">
         <div class="login-box">
@@ -143,6 +41,7 @@
     <script src="js/auth.js"></script>
 
     <script>
+        // Allow pressing "Enter" to login
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {

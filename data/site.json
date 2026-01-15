@@ -77,30 +77,30 @@
     ],
     "organization": {
       "ceo": [
-        {"name": "Dato Firdau", "photo": "assets/images/logo.png", "title": "Founder"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"},
-        {"name": "Sara Johnson", "photo": "assets/images/logo.png", "title": "Founder"}
+        {"name": "Dato Firdau", "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "title": "Founder"},
+        {"name": "Derrick", "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "title": "Founder"},
+        {"name": "Shanizam", "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "title": "Founder"},
+        {"name": "Maira", "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "title": "Founder"}
       ],
       "executive": [
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Michael Chen", "title": "CEO", "department": "Executive Management"},
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "COO", "department": "Operations"},
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CFO", "department": "Finance"},
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CTO", "department": "Technology"},
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CMO", "department": "Marketing"},
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CIO", "department": "Information Systems"},
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "CHRO", "department": "Human Resources"},
-        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "CSO", "department": "Strategy"}
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Mohammad Ali", "title": "CEO", "department": "Executive Management"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Shanizam", "title": "COO", "department": "Operations"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Zafrul", "title": "CFO", "department": "Finance"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "-", "title": "CTO", "department": "Technology"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "-", "title": "CMO", "department": "Marketing"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "-", "title": "CIO", "department": "Information Systems"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Haziq", "title": "CHRO", "department": "Human Resources"},
+        {"photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "-", "title": "CSO", "department": "Strategy"}
       ],
       "tech": [
-        { "photo": "assets/images/Image(Alex).jpeg", "name": "Alexander Huang", "title": "System Architecture Design"},
-        { "photo": "assets/images/Image(Darren).jpg", "name": "Darren Lau", "title": "Software Developer"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Emily Rodriguez", "title": "Software Engineer"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "David Kim", "title": "Mobile Developer"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "AI Developer"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "DevOps Engineer"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "DevOps Engineer"},
-        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Amanda Foster", "title": "Cloud Engineer"}
+        { "photo": "assets/images/Image(Alex).jpeg", "name": "Alexander Huang", "title": "Software Developer"},
+        { "photo": "assets/images/Image(Darren).jpg", "name": "Darren Lau", "title": "System Architecture Design"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Firdaus", "title": "Software Engineer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Aiman", "title": "Mobile Developer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Nurul", "title": "AI Developer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Izzat", "title": "Saas Developer"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Safiya", "title": "Gig Platform DeveloperOp"},
+        { "photo": "https://via.placeholder.com/200/2563eb/ffffff?text=AT", "name": "Aishah", "title": "Cloud Engineer"}
       ]
     }
   },

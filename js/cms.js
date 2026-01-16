@@ -468,7 +468,6 @@ const CMS = {
           <img src="${member.photo}">
           <h4>${member.name}</h4>
           <p>${member.title}</p>
-          <p>${member.department}</p>
         </div>
       `).join('');
 
